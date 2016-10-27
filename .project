@@ -8,16 +8,4 @@
 	</buildSpec>
 	<natures>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>assignment8/src/Backlogs/Product Backlog.xlsx</name>
-			<type>1</type>
-			<location>C:/Users/Mark/Google Drive Unlimiteddigits/IPFW/2016 Fall/Essentials of Software engineering/Assignments/assignment-8/Product Backlog.xlsx</location>
-		</link>
-		<link>
-			<name>assignment8/src/Backlogs/Sprint 1 Backlog.xlsx</name>
-			<type>1</type>
-			<location>C:/Users/Mark/Google Drive Unlimiteddigits/IPFW/2016 Fall/Essentials of Software engineering/Assignments/assignment-8/Sprint 1 Backlog.xlsx</location>
-		</link>
-	</linkedResources>
 </projectDescription>
