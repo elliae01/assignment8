@@ -4,13 +4,18 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.Panel;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.UIManager;
 
 public class Main {
@@ -98,6 +103,7 @@ public class Main {
 		textField.setColumns(10);
 		textField.setBounds(10, 57, 56, 20);
 		panel_1.add(textField);
+
 		
 		JLabel label_4 = new JLabel("mins");
 		label_4.setBounds(90, 42, 46, 14);
@@ -107,6 +113,7 @@ public class Main {
 		textField_1.setColumns(10);
 		textField_1.setBounds(84, 57, 38, 20);
 		panel_1.add(textField_1);
+
 		
 		JLabel label_5 = new JLabel("secs");
 		label_5.setBounds(158, 42, 46, 14);
@@ -116,6 +123,8 @@ public class Main {
 		textField_2.setColumns(10);
 		textField_2.setBounds(133, 57, 74, 20);
 		panel_1.add(textField_2);
+
+		
 		
 		JLabel label_6 = new JLabel("To calculate you time, fill in your");
 		label_6.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -131,7 +140,29 @@ public class Main {
 		button.setFont(new Font("Tahoma", Font.BOLD, 13));
 		button.setBounds(273, 57, 129, 20);
 		panel_1.add(button);
-		
+		button.addActionListener( new ActionListener()
+		{
+	
+			  public void actionPerformed(ActionEvent e)
+			  {
+				  int a = textField_3.getText().length();
+				  int b = textField_4.getText().length();
+				  int c = textField_5.getText().length();
+				  int d = textField_6.getText().length();
+
+				  if(a==0||b==0){
+					  JOptionPane.showMessageDialog(frmPAC, "To calculate Time, enter a Distance and Pace",
+							  "information", JOptionPane.INFORMATION_MESSAGE);
+				  }
+			  
+				  else{
+					  String f = textField_3.getText();
+					  System.out.println(Integer.parseInt(f));
+				  }
+			  }
+			});
+
+
 		Panel panel_2 = new Panel();
 		panel_2.setBackground(SystemColor.inactiveCaption);
 		panel_2.setBounds(85, 98, 455, 100);
@@ -156,11 +187,35 @@ public class Main {
 		
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setBounds(40, 61, 129, 20);
+		comboBox_1.addItem("Pick Event");
 		comboBox_1.addItem("5K");
 		comboBox_1.addItem("5-Mile");
 		comboBox_1.addItem("10K");
 		comboBox_1.addItem("Half-Marathon");
 		panel_2.add(comboBox_1);
+		comboBox_1.addActionListener( new ActionListener()
+		{
+		  public void actionPerformed(ActionEvent e)
+		  {
+			  String sec = comboBox_1.getSelectedItem().toString();
+			if(sec=="5K"){
+				textField_3.setText("5");
+				comboBox.setSelectedItem("Kilometers");
+			}
+			if(sec=="5-Mile"){
+				textField_3.setText("5");
+				comboBox.setSelectedItem("Miles");
+			}
+			if(sec=="10K"){
+			  textField_3.setText("10");
+			  comboBox.setSelectedItem("Kilometers");
+			}
+			if(sec=="Half-Marathon") {
+			  textField_3.setText("13.109375");
+			  comboBox.setSelectedItem("Kilometers");
+			}
+		  }
+		});
 		
 		JLabel label_9 = new JLabel("To calculate your distance, fill in");
 		label_9.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -181,7 +236,40 @@ public class Main {
 		button_1.setFont(new Font("Tahoma", Font.BOLD, 13));
 		button_1.setBounds(265, 61, 157, 23);
 		panel_2.add(button_1);
-		
+		//String hour;
+		textField.addActionListener( new ActionListener()
+		{
+
+		  public void actionPerformed(ActionEvent e)
+		  {
+			  String hour = textField.getText();
+			  System.out.println(hour);
+			  
+		  }
+		});
+		button_1.addActionListener( new ActionListener()
+		{
+	
+			  public void actionPerformed(ActionEvent e)
+			  {
+				  
+				  int b = textField_4.getText().length();
+				  int c = textField_5.getText().length();
+				  int d = textField_6.getText().length();
+				  int x = textField.getText().length();
+				  int y = textField_1.getText().length();
+				  int z = textField_2.getText().length();
+				  if(b==0&&x==0){
+					  JOptionPane.showMessageDialog(frmPAC, "To calculate Distance, enter a Time and Pace",
+							  "information", JOptionPane.INFORMATION_MESSAGE);
+				  }
+			  //else parse to int and pass Parse and Pace fields into Time (int, int, int, int, int...)
+				  else{
+					  String f = textField.getText();
+					  System.out.println(Integer.parseInt(f));
+				  }
+			  }
+			});
 		Panel panel_3 = new Panel();
 		panel_3.setBackground(SystemColor.activeCaption);
 		panel_3.setBounds(85, 199, 455, 100);
@@ -240,5 +328,26 @@ public class Main {
 		button_2.setFont(new Font("Tahoma", Font.BOLD, 13));
 		button_2.setBounds(273, 42, 129, 23);
 		panel_3.add(button_2);
+		button_2.addActionListener( new ActionListener()
+		{
+	
+			  public void actionPerformed(ActionEvent e)
+			  {
+				  int a = textField_3.getText().length();
+				  int x = textField.getText().length();
+				  int y = textField_1.getText().length();
+				  int z = textField_2.getText().length();
+				  if(a==0&&x==0){
+					  JOptionPane.showMessageDialog(frmPAC, "To calculate Time, enter a Distance and Pace",
+							  "information", JOptionPane.INFORMATION_MESSAGE);
+				  }
+			  
+				  else{
+					  String f = textField.getText();
+					  System.out.println(Integer.parseInt(f));
+				  }
+			  }
+			});
+
 	}
 }
