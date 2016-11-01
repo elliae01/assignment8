@@ -16,7 +16,7 @@ public class Distance {
 	 */
 	public double CalculateDistance(double dPace, double dTime){
 		double dDist;
-		dDist=dPace*dTime;
+		dDist=dTime/dPace;
 		return dDist;
 	}
 }

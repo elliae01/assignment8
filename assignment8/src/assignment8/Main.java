@@ -15,10 +15,11 @@ import java.awt.Panel;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 import javax.swing.UIManager;
 
-public class Main {
+public class Main{
 
 	private JFrame frmPAC;
 	private JTextField textField;
@@ -140,45 +141,106 @@ public class Main {
 		button.setFont(new Font("Tahoma", Font.BOLD, 13));
 		button.setBounds(273, 57, 129, 20);
 		panel_1.add(button);
-		button.addActionListener( new ActionListener()
-		{
-	
-			  public void actionPerformed(ActionEvent e)
-			  {
-				  int a = textField_3.getText().length();
-				  int b = textField_4.getText().length();
-				  int c = textField_5.getText().length();
-				  int d = textField_6.getText().length();
-
-				  if(a==0||b==0){
-					  JOptionPane.showMessageDialog(frmPAC, "To calculate Time, enter a Distance and Pace",
-							  "information", JOptionPane.INFORMATION_MESSAGE);
-				  }
-			  
-				  else{
-					  String f = textField_3.getText();
-					  System.out.println(Integer.parseInt(f));
-				  }
-			  }
-			});
-
-
+		
 		Panel panel_2 = new Panel();
 		panel_2.setBackground(SystemColor.inactiveCaption);
 		panel_2.setBounds(85, 98, 455, 100);
 		frmPAC.getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(63, 11, 86, 20);
-		panel_2.add(textField_3);
-		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(52, 30, 109, 20);
 		comboBox.addItem("Miles");
 		comboBox.addItem("Kilometers");
 		panel_2.add(comboBox);
+		
+		Panel panel_3 = new Panel();
+		panel_3.setBackground(SystemColor.activeCaption);
+		panel_3.setBounds(85, 199, 455, 100);
+		frmPAC.getContentPane().add(panel_3);
+		panel_3.setLayout(null);
+		
+		JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.setBounds(76, 57, 109, 20);
+		comboBox_2.addItem("Mile");
+		comboBox_2.addItem("Kilometer");
+		panel_3.add(comboBox_2);
+		
+		button.addActionListener( new ActionListener()
+		{
+			  double distance;
+			  double timeHr;
+			  double timeMin;
+			  double timeSec;
+			  double paceHr;
+			  double paceMin;
+			  double paceSec;
+			  double paceTotal;
+			  String time;
+			  
+			  public void actionPerformed(ActionEvent e)
+			  {
+				  if(textField_3.getText().equals("")){
+					  textField_3.setText("0");
+				  }
+				  if(textField_4.getText().equals("")){
+					  textField_4.setText("0");
+				  }
+				  if(textField_5.getText().equals("")){
+					  textField_5.setText("0");
+				  }
+				  if(textField_6.getText().equals("")){
+					  textField_6.setText("0");
+				  }
+				  DecimalFormat df = new DecimalFormat("0");
+				  DecimalFormat df2 = new DecimalFormat("0.00");
+				  
+				  distance = Double.parseDouble(textField_3.getText());
+				  paceHr = Double.parseDouble(textField_4.getText());
+				  paceMin = Double.parseDouble(textField_5.getText());
+				  paceSec = Double.parseDouble(textField_6.getText());
+				  
+				  paceTotal = (paceHr)+(paceMin/60)+(paceSec/60/60);
+				  
+				  Time timeClass = new Time();
+
+				  if(distance<=0||paceHr<=0&&paceMin<=0&&paceSec<=0){
+					  JOptionPane.showMessageDialog(frmPAC, "To calculate Time, enter a Distance and Pace",
+							  "information", JOptionPane.INFORMATION_MESSAGE);
+				  }
+				  if(distance<0||paceHr<0||paceMin<0||paceSec<0){
+					  JOptionPane.showMessageDialog(frmPAC, "To calculate Time, enter a Distance and Pace",
+							  "information", JOptionPane.INFORMATION_MESSAGE);
+				  }
+				  if(comboBox.getSelectedItem()=="Miles"&& comboBox_2.getSelectedItem()=="Mile" 
+						  ||comboBox.getSelectedItem()=="Kilometers" &&comboBox_2.getSelectedItem()=="Kilometer"){
+					  time = df.format(timeClass.calculate(paceTotal, distance));
+					  time = df.format(distance*paceHr);
+					  textField.setText(time);
+					  time = df.format(distance*paceMin);
+					  textField_1.setText(time);
+					  time = df2.format(distance*paceSec);
+					  textField_2.setText(time);
+				  }
+				  if(comboBox.getSelectedItem()=="Kilometers"&&comboBox_2.getSelectedItem()=="Mile"){
+					  time = df.format(timeClass.calculate(paceTotal, distance)/1.60934);
+					  textField.setText(time);
+					  textField_1.setText(Double.toString(distance*paceMin));
+					  textField_2.setText(Double.toString(distance*paceSec));
+				  }
+				  if(comboBox.getSelectedItem()=="Miles"&&comboBox_2.getSelectedItem()=="Kilometer"){
+					  time = df.format(timeClass.calculate(paceTotal, distance)*1.60934);
+					  textField.setText(time);
+					  textField_1.setText(Double.toString(distance*paceMin));
+					  textField_2.setText(Double.toString(distance*paceSec));
+				  }
+			  }
+			});
+
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(63, 11, 86, 20);
+		panel_2.add(textField_3);
 		
 		JLabel label_8 = new JLabel("or");
 		label_8.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -236,45 +298,77 @@ public class Main {
 		button_1.setFont(new Font("Tahoma", Font.BOLD, 13));
 		button_1.setBounds(265, 61, 157, 23);
 		panel_2.add(button_1);
-		//String hour;
-		textField.addActionListener( new ActionListener()
-		{
 
-		  public void actionPerformed(ActionEvent e)
-		  {
-			  String hour = textField.getText();
-			  System.out.println(hour);
-			  
-		  }
-		});
 		button_1.addActionListener( new ActionListener()
 		{
-	
+			  double timeHr;
+			  double timeMin;
+			  double timeSec;
+			  double paceHr;
+			  double paceMin;
+			  double paceSec;
+			  double timeTotal;
+			  double paceTotal;
+			  String distance;
+			  
 			  public void actionPerformed(ActionEvent e)
 			  {
+
+				  if(textField.getText().equals("")){
+					  textField.setText("0");  
+				  }
+				  if(textField_1.getText().equals("")){
+					  textField_1.setText("0");
+				  }
+				  if(textField_2.getText().equals("")){
+					  textField_2.setText("0");
+				  }
+				  if(textField_4.getText().equals("")){
+					  textField_4.setText("0");
+				  }
+				  if(textField_5.getText().equals("")){
+					  textField_5.setText("0");
+				  }
+				  if(textField_6.getText().equals("")){
+					  textField_6.setText("0");
+				  }
+				  DecimalFormat df = new DecimalFormat("0.0000");
 				  
-				  int b = textField_4.getText().length();
-				  int c = textField_5.getText().length();
-				  int d = textField_6.getText().length();
-				  int x = textField.getText().length();
-				  int y = textField_1.getText().length();
-				  int z = textField_2.getText().length();
-				  if(b==0&&x==0){
+				  timeHr = Double.parseDouble(textField.getText());
+				  timeMin = Double.parseDouble(textField_1.getText());
+				  timeSec = Double.parseDouble(textField_2.getText());
+				  paceHr = Double.parseDouble(textField_4.getText());
+				  paceMin = Double.parseDouble(textField_5.getText());
+				  paceSec = Double.parseDouble(textField_6.getText());
+				  
+				  timeTotal = (timeHr)+(timeMin/60)+(timeSec/60/60);
+				  paceTotal = (paceHr)+(paceMin/60)+(paceSec/60/60);
+				  
+				  Distance dist = new Distance();
+
+				  if(timeHr<=0&&timeMin<=0&&timeSec<=0||paceHr<=0&&paceMin<=0&&paceSec<=0){
 					  JOptionPane.showMessageDialog(frmPAC, "To calculate Distance, enter a Time and Pace",
 							  "information", JOptionPane.INFORMATION_MESSAGE);
 				  }
-			  //else parse to int and pass Parse and Pace fields into Time (int, int, int, int, int...)
-				  else{
-					  String f = textField.getText();
-					  System.out.println(Integer.parseInt(f));
+				  if(timeHr<0||timeMin<0||timeSec<0||paceHr<0||paceMin<0||paceSec<0){
+					  JOptionPane.showMessageDialog(frmPAC, "To calculate Distance, enter a Time and Pace",
+							  "information", JOptionPane.INFORMATION_MESSAGE);
+				  }
+				  if(comboBox.getSelectedItem()=="Miles"&& comboBox_2.getSelectedItem()=="Mile" 
+						  ||comboBox.getSelectedItem()=="Kilometers" &&comboBox_2.getSelectedItem()=="Kilometer"){
+					  distance = df.format(dist.CalculateDistance(paceTotal, timeTotal));
+					  textField_3.setText(distance);
+				  }
+				  if(comboBox.getSelectedItem()=="Kilometers"&&comboBox_2.getSelectedItem()=="Mile"){
+					  distance = df.format(dist.CalculateDistance(paceTotal, timeTotal)*1.60934);
+					  textField_3.setText(distance);
+				  }
+				  if(comboBox.getSelectedItem()=="Miles"&&comboBox_2.getSelectedItem()=="Kilometer"){
+					  distance = df.format(dist.CalculateDistance(paceTotal, timeTotal)/1.60934);
+					  textField_3.setText(distance); 
 				  }
 			  }
 			});
-		Panel panel_3 = new Panel();
-		panel_3.setBackground(SystemColor.activeCaption);
-		panel_3.setBounds(85, 199, 455, 100);
-		frmPAC.getContentPane().add(panel_3);
-		panel_3.setLayout(null);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
@@ -308,12 +402,6 @@ public class Main {
 		label_15.setBounds(10, 57, 46, 14);
 		panel_3.add(label_15);
 		
-		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setBounds(76, 57, 109, 20);
-		comboBox_2.addItem("Mile");
-		comboBox_2.addItem("Kilometer");
-		panel_3.add(comboBox_2);
-		
 		JLabel label_16 = new JLabel("To calculate your pace, fill in your");
 		label_16.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		label_16.setBounds(231, 12, 200, 14);
@@ -331,20 +419,67 @@ public class Main {
 		button_2.addActionListener( new ActionListener()
 		{
 	
+
+			  double distance;
+			  double timeHr;
+			  double timeMin;
+			  double timeSec;
+			  double timeTotal;
+			  double paceTotal;
+			  String pace;
+			  
 			  public void actionPerformed(ActionEvent e)
 			  {
-				  int a = textField_3.getText().length();
-				  int x = textField.getText().length();
-				  int y = textField_1.getText().length();
-				  int z = textField_2.getText().length();
-				  if(a==0&&x==0){
-					  JOptionPane.showMessageDialog(frmPAC, "To calculate Time, enter a Distance and Pace",
+
+				  if(textField.getText().equals("")){
+					  textField.setText("0");  
+				  }
+				  if(textField_1.getText().equals("")){
+					  textField_1.setText("0");
+				  }
+				  if(textField_2.getText().equals("")){
+					  textField_2.setText("0");
+				  }
+
+				  DecimalFormat df = new DecimalFormat("0");
+				  DecimalFormat df2 = new DecimalFormat("0.00");
+				  
+				  distance = Double.parseDouble(textField_3.getText());
+				  timeHr = Double.parseDouble(textField.getText());
+				  timeMin = Double.parseDouble(textField_1.getText());
+				  timeSec = Double.parseDouble(textField_2.getText());
+				  timeTotal = (timeHr)+(timeMin/60)+(timeSec/60/60);
+				  
+				  Pace paceClass = new Pace();
+
+				  if(timeHr<=0&&timeMin<=0&&timeSec<=0||distance<=0){
+					  JOptionPane.showMessageDialog(frmPAC, "To calculate Pace, enter a Distance and Time",
 							  "information", JOptionPane.INFORMATION_MESSAGE);
 				  }
-			  
-				  else{
-					  String f = textField.getText();
-					  System.out.println(Integer.parseInt(f));
+				  if(timeHr<0||timeMin<0||timeSec<0||distance<0){
+					  JOptionPane.showMessageDialog(frmPAC, "To calculate Pace, enter a Distance and Time",
+							  "information", JOptionPane.INFORMATION_MESSAGE);
+				  }
+				  if(comboBox.getSelectedItem()=="Miles"&& comboBox_2.getSelectedItem()=="Mile" 
+						  ||comboBox.getSelectedItem()=="Kilometers" &&comboBox_2.getSelectedItem()=="Kilometer"){
+					  pace = df.format(paceClass.calculate(timeTotal, distance));
+					  textField_4.setText(pace);
+					  pace = df.format(timeMin/distance);
+					  textField_5.setText(pace);
+					  pace = df2.format(timeSec/distance);
+					  textField_6.setText(pace);
+				  }
+				  if(comboBox.getSelectedItem()=="Kilometers"&&comboBox_2.getSelectedItem()=="Mile"){
+					  pace = df.format(paceClass.calculate(timeTotal, distance)*1.60934);
+					  textField_4.setText(pace);
+					  textField_5.setText(Double.toString(timeMin/distance));
+					  textField_6.setText(Double.toString(timeSec/distance));
+				  }
+				  if(comboBox.getSelectedItem()=="Miles"&&comboBox_2.getSelectedItem()=="Kilometer"){
+					  pace = df.format(paceClass.calculate(timeTotal,distance)/1.60934);
+					  textField_4.setText(pace);
+					  textField_5.setText(Double.toString(timeMin/distance));
+					  textField_6.setText(Double.toString(timeSec/distance));
 				  }
 			  }
 			});

@@ -8,7 +8,7 @@ public class Pace {
 	}
 
 	public double calculate(double time, double distance) {
-		pace = distance / time;
+		pace = time/distance;
 
 		return pace;
 	}

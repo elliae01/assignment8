@@ -9,7 +9,7 @@ public class Time {
 	}
 
 	public double calculate(double pace, double distance) {
-		dTime = distance / pace;
+		dTime = distance * pace;
 
 		return dTime;
 	}
