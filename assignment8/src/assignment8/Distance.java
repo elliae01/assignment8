@@ -1,21 +1,22 @@
 package assignment8;
 
 public class Distance {
-
-	static double dDistance;
+	double distance=0;
 	
 	public Distance() {
-		dDistance=0;
+
 	}
 
 	/**
-	 * This procedure is to return a basic physics distance over time * time
-	 * @param dPace as meters per second
-	 * @param dTime as seconds
-	 * @return distance in meters
+	 * This procedure is to return a basic physics distance (d=rt)
+	 * rate = distance / time  (i.e. mile/min)
+	 * pace = 1/rate  (i.e. min/mile)
+	 * @param pace as any unit 
+	 * @param time as same time unit as pace
+	 * @return distance as unit used in pace
 	 */
-	public double CalculateDistance(double dPace, double dTime){
-		dDistance=dTime/dPace;
-		return dDistance;
+	public double calculate(double pace, double time){
+		distance=time/pace;
+		return distance;
 	}
 }
