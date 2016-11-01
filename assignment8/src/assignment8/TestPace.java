@@ -19,7 +19,7 @@ public class TestPace {
 	private Pace pace = new Pace();
 	
 	@Test
-	public void test_n1() {
+	public void test_c1() {
 		double time = 21.5;
 		double distance = 3.1;
 		double expectedResult = 6.92;
@@ -29,7 +29,7 @@ public class TestPace {
 	}
 	
 	@Test
-	public void test_n2() {
+	public void test_c2() {
 		double time = 103.95; //1:43:57
 		double distance = 13.1094; // half marathon = 21.0975k
 		double expectedResult =7.92; // 7:55.8
@@ -39,7 +39,7 @@ public class TestPace {
 	}
 	
 	@Test
-	public void test_n3() {
+	public void test_c3() {
 		double time =  43.49666; // Reverse of item 3
 		double distance = 6.2; // 10k
 		double expectedResult =7; // Reverse of item 3
