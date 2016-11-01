@@ -5,19 +5,24 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
- * @author Mark
+ *Client
  *Item 1 = For a 5K event, I ran a time of 21:30 resulting in a pace of 6:55.2 minutes/mile
  *Item 2 = For a half-marathon event, I ran a time of 1:43:57 resulting in a pace of 7:55.8  minutes/mile .
  *Item 3 = In training for a 10K, I wanted to run a 7:00 minute pace resulting in a time of 43:29.8 minutes.
+ *
+ *2 examples
+ *Pace - 6:55.9, 6:54.6
+ *Distance - 5K, 5K
+ *Time - 21:32, 21:28
  */
 public class TestPace {
 	private Pace pace = new Pace();
 	
 	@Test
-	public void test_n3() {
-		double time =  43.49666; // Reverse of item 3
-		double distance = 6.2; // 10k
-		double expectedResult =7; // Reverse of item 3
+	public void test_n1() {
+		double time = 21.5;
+		double distance = 3.1;
+		double expectedResult = 6.92;
 		double actualResult = pace.calculate(time, distance);
 		
 		assertEquals(expectedResult, actualResult, 0.1);
@@ -34,10 +39,10 @@ public class TestPace {
 	}
 	
 	@Test
-	public void test_n1() {
-		double time = 21.5;
-		double distance = 3.1;
-		double expectedResult = 6.92;
+	public void test_n3() {
+		double time =  43.49666; // Reverse of item 3
+		double distance = 6.2; // 10k
+		double expectedResult =7; // Reverse of item 3
 		double actualResult = pace.calculate(time, distance);
 		
 		assertEquals(expectedResult, actualResult, 0.1);
