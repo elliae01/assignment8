@@ -15,8 +15,7 @@ public class Distance {
 	 * @return distance in meters
 	 */
 	public double CalculateDistance(double dPace, double dTime){
-		double dDist;
-		dDist=dTime/dPace;
-		return dDist;
+		dDistance=dTime/dPace;
+		return dDistance;
 	}
 }

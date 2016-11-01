@@ -4,8 +4,19 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+
 public class TestTime {
 	Time time = new Time();
+	
+	@Test
+	public void test_n1() {
+		double pace = 6.92/60;
+		double distance = 3.1;  // 5k
+		double expectedResult = 21.5;
+		double actualResult = time.calculate(pace, distance);
+		
+		assertEquals(expectedResult, actualResult, 0.1);
+	}
 	
 	@Test
 	public void test() {

@@ -8,8 +8,8 @@ public class Time {
 
 	}
 
-	public double calculate(double pace, double distance) {
-		dTime = distance / pace;
+	public double calculate(double dPace, double dDistance) {
+		dTime = dDistance/dPace;
 
 		return dTime;
 	}
