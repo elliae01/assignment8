@@ -55,8 +55,6 @@ public class UnitConverter {
 	public String asSeconds(double seconds)
 	{
 		String time = df.format(seconds);
-		System.out.println(seconds);
-		System.out.println(time);
 		double sub=0;
 		if(Double.parseDouble(time)>seconds){
 			sub=Double.parseDouble(time)-1;
