@@ -352,7 +352,7 @@ public class Main{
 				  if(textField_2.getText().equals("")){
 					  textField_2.setText("0");
 				  }
-				  if(textField_4.getText().equals("")){
+				  if(textField_3.getText().equals("")){
 					  textField_4.setText("0");
 				  }
 				  if(textField_5.getText().equals("")){
@@ -472,7 +472,9 @@ public class Main{
 				  if(textField_2.getText().equals("")){
 					  textField_2.setText("0");
 				  }
-
+				  if(textField_3.getText().equals("")){
+					  textField_3.setText("0");
+				  }
 				  DecimalFormat df = new DecimalFormat("0.0000");
 				  DecimalFormat df2 = new DecimalFormat("0");
 				  
