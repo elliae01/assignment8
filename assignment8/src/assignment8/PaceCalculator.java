@@ -542,6 +542,6 @@ public class PaceCalculator{
 				  }
 			  }
 			});
-
+			System.out.println("PaceCalc");
 	}
 }
