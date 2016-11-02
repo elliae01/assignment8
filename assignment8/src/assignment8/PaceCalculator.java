@@ -385,15 +385,15 @@ public class PaceCalculator{
 				  }
 				  if(comboBox.getSelectedItem()=="Miles"&& comboBox_2.getSelectedItem()=="Mile" 
 						  ||comboBox.getSelectedItem()=="Kilometers" &&comboBox_2.getSelectedItem()=="Kilometer"){
-					  distance = df.format(dist.CalculateDistance(paceTotal, timeTotal));
+					  distance = df.format(dist.calculate(paceTotal, timeTotal));
 					  textField_3.setText(distance);
 				  }
 				  if(comboBox.getSelectedItem()=="Kilometers"&&comboBox_2.getSelectedItem()=="Mile"){
-					  distance = df.format(dist.CalculateDistance(paceTotal, timeTotal)*1.60934);
+					  distance = df.format(dist.calculate(paceTotal, timeTotal)*1.60934);
 					  textField_3.setText(distance);
 				  }
 				  if(comboBox.getSelectedItem()=="Miles"&&comboBox_2.getSelectedItem()=="Kilometer"){
-					  distance = df.format(dist.CalculateDistance(paceTotal, timeTotal)/1.60934);
+					  distance = df.format(dist.calculate(paceTotal, timeTotal)/1.60934);
 					  textField_3.setText(distance); 
 				  }
 			  }
