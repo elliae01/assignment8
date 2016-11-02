@@ -16,7 +16,7 @@ public class Time {
 	 * @return time as same time unit in pace
 	 */
 	public double calculate(double pace, double distance) {
-		time = distance/pace;
+		time = distance*pace;
 
 		return time;
 	}

@@ -177,6 +177,8 @@ public class Main{
 			  double paceSec;
 			  double paceTotal;
 			  String time;
+			  String time2;
+			  String time3;
 			  
 			  public void actionPerformed(ActionEvent e)
 			  {
@@ -192,8 +194,8 @@ public class Main{
 				  if(textField_6.getText().equals("")){
 					  textField_6.setText("0");
 				  }
-				  DecimalFormat df = new DecimalFormat("0");
-				  DecimalFormat df2 = new DecimalFormat("0.00");
+				  DecimalFormat df = new DecimalFormat("0.0000");
+				  DecimalFormat df2 = new DecimalFormat("0");
 				  
 				  distance = Double.parseDouble(textField_3.getText());
 				  paceHr = Double.parseDouble(textField_4.getText());
@@ -201,8 +203,10 @@ public class Main{
 				  paceSec = Double.parseDouble(textField_6.getText());
 				  
 				  paceTotal = (paceHr)+(paceMin/60)+(paceSec/60/60);
+				  //System.out.println(paceTotal);
 				  
 				  Time timeClass = new Time();
+				  UnitConverter unitConvert = new UnitConverter();
 
 				  if(distance<=0||paceHr<=0&&paceMin<=0&&paceSec<=0){
 					  JOptionPane.showMessageDialog(frmPAC, "To calculate Time, enter a Distance and Pace",
@@ -215,24 +219,49 @@ public class Main{
 				  if(comboBox.getSelectedItem()=="Miles"&& comboBox_2.getSelectedItem()=="Mile" 
 						  ||comboBox.getSelectedItem()=="Kilometers" &&comboBox_2.getSelectedItem()=="Kilometer"){
 					  time = df.format(timeClass.calculate(paceTotal, distance));
-					  time = df.format(distance*paceHr);
+					  time2 = df.format(timeClass.calculate(paceTotal, distance));
+					  time3 = df.format(timeClass.calculate(paceTotal, distance));
+					  
+					  time = unitConvert.asHours(Double.parseDouble(time));
 					  textField.setText(time);
-					  time = df.format(distance*paceMin);
-					  textField_1.setText(time);
-					  time = df2.format(distance*paceSec);
-					  textField_2.setText(time);
+					  
+					  time2 = unitConvert.asMinutes(Double.parseDouble(time2));
+					  textField_1.setText(time2);
+					  
+					  time3 = unitConvert.asSeconds(Double.parseDouble(time3));
+					  textField_2.setText(time3);
 				  }
 				  if(comboBox.getSelectedItem()=="Kilometers"&&comboBox_2.getSelectedItem()=="Mile"){
-					  time = df.format(timeClass.calculate(paceTotal, distance)/1.60934);
+					  time = df.format(timeClass.calculate(paceTotal, distance/1.60934));
+					  time2 = df.format(timeClass.calculate(paceTotal, distance/1.60934));
+					  time3 = df.format(timeClass.calculate(paceTotal, distance/1.60934));
+					  
+					  time = unitConvert.asHours(Double.parseDouble(time));
 					  textField.setText(time);
-					  textField_1.setText(Double.toString(distance*paceMin));
-					  textField_2.setText(Double.toString(distance*paceSec));
+					  
+					  time2 = unitConvert.asMinutes(Double.parseDouble(time2));
+					  textField_1.setText(time2);
+					  
+					  time3 = unitConvert.asSeconds(Double.parseDouble(time3));
+					  textField_2.setText(time3);
+					  //textField_1.setText(Double.toString(distance*paceMin/1.60934/60));
+					  //textField_2.setText(Double.toString(distance*paceSec/1.60934/3600));
 				  }
 				  if(comboBox.getSelectedItem()=="Miles"&&comboBox_2.getSelectedItem()=="Kilometer"){
-					  time = df.format(timeClass.calculate(paceTotal, distance)*1.60934);
+					  time = df.format(timeClass.calculate(paceTotal, distance*1.60934));
+					  time2 = df.format(timeClass.calculate(paceTotal, distance*1.60934));
+					  time3 = df.format(timeClass.calculate(paceTotal, distance*1.60934));
+					  
+					  time = unitConvert.asHours(Double.parseDouble(time));
 					  textField.setText(time);
-					  textField_1.setText(Double.toString(distance*paceMin));
-					  textField_2.setText(Double.toString(distance*paceSec));
+					  
+					  time2 = unitConvert.asMinutes(Double.parseDouble(time2));
+					  textField_1.setText(time2);
+					  
+					  time3 = unitConvert.asSeconds(Double.parseDouble(time3));
+					  textField_2.setText(time3);
+					  //textField_1.setText(Double.toString(distance*paceMin*1.60934/60));
+					  //textField_2.setText(Double.toString(distance*paceSec*1.60934/3600));
 				  }
 			  }
 			});
@@ -427,6 +456,9 @@ public class Main{
 			  double timeTotal;
 			  double paceTotal;
 			  String pace;
+			  String time;
+			  String time2;
+			  String time3;
 			  
 			  public void actionPerformed(ActionEvent e)
 			  {
@@ -441,16 +473,17 @@ public class Main{
 					  textField_2.setText("0");
 				  }
 
-				  DecimalFormat df = new DecimalFormat("0");
-				  DecimalFormat df2 = new DecimalFormat("0.00");
+				  DecimalFormat df = new DecimalFormat("0.0000");
+				  DecimalFormat df2 = new DecimalFormat("0");
 				  
 				  distance = Double.parseDouble(textField_3.getText());
 				  timeHr = Double.parseDouble(textField.getText());
 				  timeMin = Double.parseDouble(textField_1.getText());
 				  timeSec = Double.parseDouble(textField_2.getText());
-				  timeTotal = (timeHr)+(timeMin/60)+(timeSec/60/60);
+				  paceTotal = (timeHr)+(timeMin/60)+(timeSec/60/60);
 				  
 				  Pace paceClass = new Pace();
+				  UnitConverter unitConvert = new UnitConverter();
 
 				  if(timeHr<=0&&timeMin<=0&&timeSec<=0||distance<=0){
 					  JOptionPane.showMessageDialog(frmPAC, "To calculate Pace, enter a Distance and Time",
@@ -462,24 +495,50 @@ public class Main{
 				  }
 				  if(comboBox.getSelectedItem()=="Miles"&& comboBox_2.getSelectedItem()=="Mile" 
 						  ||comboBox.getSelectedItem()=="Kilometers" &&comboBox_2.getSelectedItem()=="Kilometer"){
-					  pace = df.format(paceClass.calculate(timeTotal, distance));
-					  textField_4.setText(pace);
-					  pace = df.format(timeMin/distance);
-					  textField_5.setText(pace);
-					  pace = df2.format(timeSec/distance);
-					  textField_6.setText(pace);
-				  }
-				  if(comboBox.getSelectedItem()=="Kilometers"&&comboBox_2.getSelectedItem()=="Mile"){
-					  pace = df.format(paceClass.calculate(timeTotal, distance)*1.60934);
-					  textField_4.setText(pace);
-					  textField_5.setText(Double.toString(timeMin/distance));
-					  textField_6.setText(Double.toString(timeSec/distance));
+					  time = df.format(paceClass.calculate(paceTotal, distance));
+					  time2 = df.format(paceClass.calculate(paceTotal, distance));
+					  time3 = df.format(paceClass.calculate(paceTotal, distance));
+					  
+					  time = unitConvert.asHours(Double.parseDouble(time));
+					  textField_4.setText(time);
+					  
+					  time2 = unitConvert.asMinutes(Double.parseDouble(time2));
+					  textField_5.setText(time2);
+					  
+					  time3 = unitConvert.asSeconds(Double.parseDouble(time3));
+					  textField_6.setText(time3);
 				  }
 				  if(comboBox.getSelectedItem()=="Miles"&&comboBox_2.getSelectedItem()=="Kilometer"){
-					  pace = df.format(paceClass.calculate(timeTotal,distance)/1.60934);
-					  textField_4.setText(pace);
-					  textField_5.setText(Double.toString(timeMin/distance));
-					  textField_6.setText(Double.toString(timeSec/distance));
+					  time = df.format(paceClass.calculate(paceTotal, distance*1.60934));
+					  time2 = df.format(paceClass.calculate(paceTotal, distance*1.60934));
+					  time3 = df.format(paceClass.calculate(paceTotal, distance*1.60934));
+					  
+					  time = unitConvert.asHours(Double.parseDouble(time));
+					  textField_4.setText(time);
+					  
+					  time2 = unitConvert.asMinutes(Double.parseDouble(time2));
+					  textField_5.setText(time2);
+					  
+					  time3 = unitConvert.asSeconds(Double.parseDouble(time3));
+					  textField_6.setText(time3);
+					  //textField_5.setText(Double.toString(timeMin/distance));
+					  //textField_6.setText(Double.toString(timeSec/distance));
+				  }
+				  if(comboBox.getSelectedItem()=="Kilometers"&&comboBox_2.getSelectedItem()=="Mile"){
+					  time = df.format(paceClass.calculate(paceTotal, distance/1.60934));
+					  time2 = df.format(paceClass.calculate(paceTotal, distance/1.60934));
+					  time3 = df.format(paceClass.calculate(paceTotal, distance/1.60934));
+					  
+					  time = unitConvert.asHours(Double.parseDouble(time));
+					  textField_4.setText(time);
+					  
+					  time2 = unitConvert.asMinutes(Double.parseDouble(time2));
+					  textField_5.setText(time2);
+					  
+					  time3 = unitConvert.asSeconds(Double.parseDouble(time3));
+					  textField_6.setText(time3);
+					  //textField_5.setText(Double.toString(timeMin/distance));
+					  //textField_6.setText(Double.toString(timeSec/distance));
 				  }
 			  }
 			});
