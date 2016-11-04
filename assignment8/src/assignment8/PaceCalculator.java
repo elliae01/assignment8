@@ -310,10 +310,12 @@ public class PaceCalculator extends JFrame {
 				  if(textField_4.getText().equals("")){
 					  textField_4.setText("0");
 				  }
-				  if(textField_5.getText().equals("")){
+				  if(textField_5.getText().equals("")
+						  || Double.parseDouble(textField_5.getText())<=0){
 					  textField_5.setText("0");
 				  }
-				  if(textField_6.getText().equals("")){
+				  if(textField_6.getText().equals("")
+						  || Double.parseDouble(textField_6.getText())<=0){
 					  textField_6.setText("0");
 				  }
 				  DecimalFormat df = new DecimalFormat("0.0000");
@@ -467,22 +469,27 @@ public class PaceCalculator extends JFrame {
 			  public void actionPerformed(ActionEvent e)
 			  {
 
-				  if(textField.getText().equals("")){
+				  if(textField.getText().equals("")
+						  || Double.parseDouble(textField.getText())<=0){
 					  textField.setText("0");  
 				  }
-				  if(textField_1.getText().equals("")){
+				  if(textField_1.getText().equals("")
+						  || Double.parseDouble(textField_1.getText())<=0){
 					  textField_1.setText("0");
 				  }
-				  if(textField_2.getText().equals("")){
+				  if(textField_2.getText().equals("")
+						  || Double.parseDouble(textField_2.getText())<=0){
 					  textField_2.setText("0");
 				  }
 				  if(textField_4.getText().equals("")){
 					  textField_4.setText("0");
 				  }
-				  if(textField_5.getText().equals("")){
+				  if(textField_5.getText().equals("")
+						  || Double.parseDouble(textField_5.getText())<=0){
 					  textField_5.setText("0");
 				  }
-				  if(textField_6.getText().equals("")){
+				  if(textField_6.getText().equals("")
+						  || Double.parseDouble(textField_6.getText())<=0){
 					  textField_6.setText("0");
 				  }
 				  DecimalFormat df = new DecimalFormat("0.0000");
@@ -597,7 +604,7 @@ public class PaceCalculator extends JFrame {
 		textField_6.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent arg0) {
-				if (textField_6.getText().length()>=3){
+				if (textField_6.getText().length()>3){
 					arg0.consume();
 				}
 				if (arg0.getKeyChar()=='.'){
@@ -665,13 +672,16 @@ public class PaceCalculator extends JFrame {
 			  public void actionPerformed(ActionEvent e)
 			  {
 
-				  if(textField.getText().equals("")){
+				  if(textField.getText().equals("")
+						  || Double.parseDouble(textField.getText())<=0){
 					  textField.setText("0");  
 				  }
-				  if(textField_1.getText().equals("")){
+				  if(textField_1.getText().equals("")
+						  || Double.parseDouble(textField_1.getText())<=0){
 					  textField_1.setText("0");
 				  }
-				  if(textField_2.getText().equals("")){
+				  if(textField_2.getText().equals("")
+						  || Double.parseDouble(textField_2.getText())<=0){
 					  textField_2.setText("0");
 				  }
 				  if(textField_3.getText().equals("")){
@@ -680,10 +690,12 @@ public class PaceCalculator extends JFrame {
 				  if(textField_4.getText().equals("")){
 					  textField_4.setText("0");
 				  }
-				  if(textField_5.getText().equals("")){
+				  if(textField_5.getText().equals("")
+						  || Double.parseDouble(textField_5.getText())<=0){
 					  textField_5.setText("0");
 				  }
-				  if(textField_6.getText().equals("")){
+				  if(textField_6.getText().equals("")
+						  || Double.parseDouble(textField_6.getText())<=0){
 					  textField_6.setText("0");
 				  }
 
