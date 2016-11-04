@@ -1,28 +1,26 @@
 package assignment8;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Color;
 import java.awt.Panel;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.UIManager;
 
-public class PaceCalculator extends JFrame {
+public class PaceCalculator_V1 extends JFrame {
 
-	private JPanel contentPane;
 	private JFrame frmPAC;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -32,7 +30,6 @@ public class PaceCalculator extends JFrame {
 	private JTextField textField_5;
 	private JTextField textField_6;
 
-
 	/**
 	 * Launch the application.
 	 */
@@ -40,8 +37,8 @@ public class PaceCalculator extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PaceCalculator frame = new PaceCalculator();
-					frame.frmPAC.setVisible(true);
+					PaceCalculator_V1 window = new PaceCalculator_V1();
+					window.frmPAC.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -49,20 +46,17 @@ public class PaceCalculator extends JFrame {
 		});
 	}
 
-	public PaceCalculator() {
+	/**
+	 * Create the application.
+	 */
+	public PaceCalculator_V1() {
 		initialize();
 	}
 
 	/**
-	 * Create the frame.
+	 * Initialize the contents of the frame.
 	 */
-	public void initialize() {
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		setBounds(100, 100, 450, 300);
-//		contentPane = new JPanel();
-//		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-//		contentPane.setLayout(new BorderLayout(0, 0));
-//		setContentPane(contentPane);
+	private void initialize() {
 		frmPAC = new JFrame();
 		frmPAC.getContentPane().setBackground(new Color(248, 248, 255));
 		frmPAC.getContentPane().setForeground(Color.CYAN);
@@ -155,7 +149,6 @@ public class PaceCalculator extends JFrame {
 		panel_2.setLayout(null);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setVisible(false);
 		comboBox.setBounds(52, 30, 109, 20);
 		comboBox.addItem("Miles");
 		comboBox.addItem("Kilometers");
@@ -168,9 +161,9 @@ public class PaceCalculator extends JFrame {
 		panel_3.setLayout(null);
 		
 		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Mile"}));
 		comboBox_2.setBounds(76, 57, 109, 20);
-//		comboBox_2.addItem("Kilometer");
+		comboBox_2.addItem("Mile");
+		comboBox_2.addItem("Kilometer");
 		panel_3.add(comboBox_2);
 		
 		button.addActionListener( new ActionListener()
@@ -274,13 +267,11 @@ public class PaceCalculator extends JFrame {
 			});
 
 		textField_3 = new JTextField();
-		textField_3.setVisible(false);
 		textField_3.setColumns(10);
 		textField_3.setBounds(63, 11, 86, 20);
 		panel_2.add(textField_3);
 		
 		JLabel label_8 = new JLabel("or");
-		label_8.setVisible(false);
 		label_8.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		label_8.setBounds(103, 47, 46, 14);
 		panel_2.add(label_8);
@@ -553,5 +544,4 @@ public class PaceCalculator extends JFrame {
 			});
 			System.out.println("PaceCalc");
 	}
-	}
-
+}
