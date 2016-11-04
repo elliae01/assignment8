@@ -127,13 +127,17 @@ public class PaceCalculator extends JFrame {
 		textField.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent arg0) {
+				if (textField.getText().length()>=2){
+					arg0.consume();
+				}
 				if (arg0.getKeyChar()=='.'){
 					JOptionPane.showMessageDialog(frmPAC, "Decimal Not Allowed.",
 							  "Information", JOptionPane.INFORMATION_MESSAGE);
 					arg0.setKeyChar((char) 0);;
 				} else 
 					if (arg0.getKeyChar()==KeyEvent.VK_BACK_SPACE){
-
+				} else 
+					if (arg0.getKeyChar()==KeyEvent.VK_DELETE){
 				} else
 					if (arg0.getKeyChar()==KeyEvent.VK_ENTER){
 //						JOptionPane.showMessageDialog(frmPAC, "You Pressed Enter.",
@@ -167,13 +171,17 @@ public class PaceCalculator extends JFrame {
 		textField_1.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent arg0) {
+				if (textField_1.getText().length()>=2){
+					arg0.consume();
+				}
 				if (arg0.getKeyChar()=='.'){
 					JOptionPane.showMessageDialog(frmPAC, "Decimal Not Allowed.",
 							  "Information", JOptionPane.INFORMATION_MESSAGE);
 					arg0.setKeyChar((char) 0);;
 				} else 
 					if (arg0.getKeyChar()==KeyEvent.VK_BACK_SPACE){
-
+				} else 
+					if (arg0.getKeyChar()==KeyEvent.VK_DELETE){
 				} else
 					if (arg0.getKeyChar()==KeyEvent.VK_ENTER){
 //						JOptionPane.showMessageDialog(frmPAC, "You Pressed Enter.",
@@ -207,6 +215,9 @@ public class PaceCalculator extends JFrame {
 		textField_2.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent arg0) {
+				if (textField_2.getText().length()>=3){
+					arg0.consume();
+				}
 				if (arg0.getKeyChar()=='.'){
 					if (textField_2.getText().contains(".")){
 						JOptionPane.showMessageDialog(frmPAC, "Only one Decimal Allowed.",
@@ -215,7 +226,8 @@ public class PaceCalculator extends JFrame {
 					}
 				} else 
 					if (arg0.getKeyChar()==KeyEvent.VK_BACK_SPACE){
-
+				} else 
+					if (arg0.getKeyChar()==KeyEvent.VK_DELETE){	
 				} else
 					if (arg0.getKeyChar()==KeyEvent.VK_ENTER){
 //						JOptionPane.showMessageDialog(frmPAC, "You Pressed Enter.",
@@ -542,19 +554,23 @@ public class PaceCalculator extends JFrame {
 		textField_5.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent arg0) {
+				if (textField_5.getText().length()>=2){
+					arg0.consume();
+				}
 				if (arg0.getKeyChar()=='.'){
 					JOptionPane.showMessageDialog(frmPAC, "Decimal Not Allowed.",
 							  "Information", JOptionPane.INFORMATION_MESSAGE);
 					arg0.setKeyChar((char) 0);;
 				} else 
-					if (arg0.getKeyChar()==KeyEvent.VK_BACK_SPACE){
-
+					if (arg0.getKeyChar()==KeyEvent.VK_BACK_SPACE){			
+				} else 
+					if (arg0.getKeyChar()==KeyEvent.VK_DELETE){
 				} else
 					if (arg0.getKeyChar()==KeyEvent.VK_ENTER){
 //						JOptionPane.showMessageDialog(frmPAC, "You Pressed Enter.",
 //								  "Information", JOptionPane.INFORMATION_MESSAGE);
-						textField_6.requestFocus();
-						textField_6.selectAll();
+						textField_5.requestFocus();
+						textField_5.selectAll();
 				} else				
 					if (arg0.getKeyChar()>'9'|arg0.getKeyChar()<'0'){
 						JOptionPane.showMessageDialog(frmPAC, "That key was not a number.",
@@ -581,6 +597,9 @@ public class PaceCalculator extends JFrame {
 		textField_6.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent arg0) {
+				if (textField_6.getText().length()>=3){
+					arg0.consume();
+				}
 				if (arg0.getKeyChar()=='.'){
 					if (textField_6.getText().contains(".")){
 						JOptionPane.showMessageDialog(frmPAC, "Only one Decimal Allowed.",
@@ -589,13 +608,14 @@ public class PaceCalculator extends JFrame {
 					}
 				} else 
 					if (arg0.getKeyChar()==KeyEvent.VK_BACK_SPACE){
-
+				} else 
+					if (arg0.getKeyChar()==KeyEvent.VK_DELETE){
 				} else
 					if (arg0.getKeyChar()==KeyEvent.VK_ENTER){
 //						JOptionPane.showMessageDialog(frmPAC, "You Pressed Enter.",
 //								  "Information", JOptionPane.INFORMATION_MESSAGE);
-						textField_5.requestFocus();
-						textField_5.selectAll();;
+						textField_6.requestFocus();
+						textField_6.selectAll();;
 				} else				
 					if (arg0.getKeyChar()>'9'|arg0.getKeyChar()<'0'){
 						JOptionPane.showMessageDialog(frmPAC, "That key was not a number.",
