@@ -19,6 +19,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.InputMethodListener;
+import java.awt.event.InputMethodEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 public class PaceCalculator extends JFrame {
 
@@ -107,6 +113,36 @@ public class PaceCalculator extends JFrame {
 		panel_1.add(label_3);
 		
 		textField = new JTextField();
+		textField.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent arg0) {
+				textField.selectAll();
+			}
+		});
+		textField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				if (arg0.getKeyChar()=='.'){
+					JOptionPane.showMessageDialog(frmPAC, "Decimal Not Allowed.",
+							  "Information", JOptionPane.INFORMATION_MESSAGE);
+					arg0.setKeyChar((char) 0);;
+				} else 
+					if (arg0.getKeyChar()==KeyEvent.VK_BACK_SPACE){
+
+				} else
+					if (arg0.getKeyChar()==KeyEvent.VK_ENTER){
+//						JOptionPane.showMessageDialog(frmPAC, "You Pressed Enter.",
+//								  "Information", JOptionPane.INFORMATION_MESSAGE);
+						textField_1.requestFocus();
+						textField_1.selectAll();;
+				} else				
+					if (arg0.getKeyChar()>'9'|arg0.getKeyChar()<'0'){
+						JOptionPane.showMessageDialog(frmPAC, "That key was not a number.",
+							  "Information", JOptionPane.INFORMATION_MESSAGE);
+						arg0.setKeyChar((char) 0);;
+				}
+			}
+		});
 		textField.setColumns(10);
 		textField.setBounds(10, 57, 56, 20);
 		panel_1.add(textField);
@@ -117,6 +153,36 @@ public class PaceCalculator extends JFrame {
 		panel_1.add(label_4);
 		
 		textField_1 = new JTextField();
+		textField_1.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				textField_1.selectAll();
+			}
+		});
+		textField_1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				if (arg0.getKeyChar()=='.'){
+					JOptionPane.showMessageDialog(frmPAC, "Decimal Not Allowed.",
+							  "Information", JOptionPane.INFORMATION_MESSAGE);
+					arg0.setKeyChar((char) 0);;
+				} else 
+					if (arg0.getKeyChar()==KeyEvent.VK_BACK_SPACE){
+
+				} else
+					if (arg0.getKeyChar()==KeyEvent.VK_ENTER){
+//						JOptionPane.showMessageDialog(frmPAC, "You Pressed Enter.",
+//								  "Information", JOptionPane.INFORMATION_MESSAGE);
+						textField_2.requestFocus();
+						textField_2.selectAll();;
+				} else				
+					if (arg0.getKeyChar()>'9'|arg0.getKeyChar()<'0'){
+						JOptionPane.showMessageDialog(frmPAC, "That key was not a number.",
+							  "Information", JOptionPane.INFORMATION_MESSAGE);
+						arg0.setKeyChar((char) 0);;
+				}
+			}
+		});
 		textField_1.setColumns(10);
 		textField_1.setBounds(84, 57, 38, 20);
 		panel_1.add(textField_1);
@@ -127,6 +193,38 @@ public class PaceCalculator extends JFrame {
 		panel_1.add(label_5);
 		
 		textField_2 = new JTextField();
+		textField_2.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				textField_2.selectAll();
+			}
+		});
+		textField_2.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				if (arg0.getKeyChar()=='.'){
+					if (textField_2.getText().contains(".")){
+						JOptionPane.showMessageDialog(frmPAC, "Only one Decimal Allowed.",
+								  "Information", JOptionPane.INFORMATION_MESSAGE);
+						arg0.setKeyChar((char) 0);;
+					}
+				} else 
+					if (arg0.getKeyChar()==KeyEvent.VK_BACK_SPACE){
+
+				} else
+					if (arg0.getKeyChar()==KeyEvent.VK_ENTER){
+//						JOptionPane.showMessageDialog(frmPAC, "You Pressed Enter.",
+//								  "Information", JOptionPane.INFORMATION_MESSAGE);
+						textField.requestFocus();;
+						textField.selectAll();;
+				} else				
+					if (arg0.getKeyChar()>'9'|arg0.getKeyChar()<'0'){
+						JOptionPane.showMessageDialog(frmPAC, "That key was not a number.",
+							  "Information", JOptionPane.INFORMATION_MESSAGE);
+						arg0.setKeyChar((char) 0);;
+				}
+			}
+		});
 		textField_2.setColumns(10);
 		textField_2.setBounds(133, 57, 74, 20);
 		panel_1.add(textField_2);
@@ -409,11 +507,13 @@ public class PaceCalculator extends JFrame {
 			});
 		
 		textField_4 = new JTextField();
+		textField_4.setVisible(false);
 		textField_4.setColumns(10);
 		textField_4.setBounds(10, 26, 56, 20);
 		panel_3.add(textField_4);
 		
 		JLabel label_12 = new JLabel("hr");
+		label_12.setVisible(false);
 		label_12.setBounds(20, 11, 46, 14);
 		panel_3.add(label_12);
 		
@@ -422,6 +522,36 @@ public class PaceCalculator extends JFrame {
 		panel_3.add(label_13);
 		
 		textField_5 = new JTextField();
+		textField_5.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				textField_5.selectAll();
+			}
+		});
+		textField_5.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				if (arg0.getKeyChar()=='.'){
+					JOptionPane.showMessageDialog(frmPAC, "Decimal Not Allowed.",
+							  "Information", JOptionPane.INFORMATION_MESSAGE);
+					arg0.setKeyChar((char) 0);;
+				} else 
+					if (arg0.getKeyChar()==KeyEvent.VK_BACK_SPACE){
+
+				} else
+					if (arg0.getKeyChar()==KeyEvent.VK_ENTER){
+//						JOptionPane.showMessageDialog(frmPAC, "You Pressed Enter.",
+//								  "Information", JOptionPane.INFORMATION_MESSAGE);
+						textField_6.requestFocus();
+						textField_6.selectAll();
+				} else				
+					if (arg0.getKeyChar()>'9'|arg0.getKeyChar()<'0'){
+						JOptionPane.showMessageDialog(frmPAC, "That key was not a number.",
+							  "Information", JOptionPane.INFORMATION_MESSAGE);
+						arg0.setKeyChar((char) 0);;
+				}
+			}
+		});
 		textField_5.setColumns(10);
 		textField_5.setBounds(84, 26, 38, 20);
 		panel_3.add(textField_5);
@@ -431,6 +561,38 @@ public class PaceCalculator extends JFrame {
 		panel_3.add(label_14);
 		
 		textField_6 = new JTextField();
+		textField_6.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				textField_6.selectAll();
+			}
+		});
+		textField_6.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				if (arg0.getKeyChar()=='.'){
+					if (textField_6.getText().contains(".")){
+						JOptionPane.showMessageDialog(frmPAC, "Only one Decimal Allowed.",
+								  "Information", JOptionPane.INFORMATION_MESSAGE);
+						arg0.setKeyChar((char) 0);;
+					}
+				} else 
+					if (arg0.getKeyChar()==KeyEvent.VK_BACK_SPACE){
+
+				} else
+					if (arg0.getKeyChar()==KeyEvent.VK_ENTER){
+//						JOptionPane.showMessageDialog(frmPAC, "You Pressed Enter.",
+//								  "Information", JOptionPane.INFORMATION_MESSAGE);
+						textField_5.requestFocus();
+						textField_5.selectAll();;
+				} else				
+					if (arg0.getKeyChar()>'9'|arg0.getKeyChar()<'0'){
+						JOptionPane.showMessageDialog(frmPAC, "That key was not a number.",
+							  "Information", JOptionPane.INFORMATION_MESSAGE);
+						arg0.setKeyChar((char) 0);;
+				}
+			}
+		});
 		textField_6.setColumns(10);
 		textField_6.setBounds(133, 26, 74, 20);
 		panel_3.add(textField_6);
@@ -552,6 +714,9 @@ public class PaceCalculator extends JFrame {
 			  }
 			});
 			System.out.println("PaceCalc");
+	}
+	public JTextField getTextField_1() {
+		return textField_1;
 	}
 	}
 
