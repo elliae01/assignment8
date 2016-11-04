@@ -18,6 +18,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import assignment8.Pace;
+import assignment8.UnitConverter;
+
 import javax.swing.DefaultComboBoxModel;
 
 public class PaceCalculator extends JFrame {
@@ -394,16 +398,22 @@ public class PaceCalculator extends JFrame {
 				  }
 				  if(comboBox.getSelectedItem()=="Miles"&& comboBox_2.getSelectedItem()=="Mile" 
 						  ||comboBox.getSelectedItem()=="Kilometers" &&comboBox_2.getSelectedItem()=="Kilometer"){
+					  if(paceTotal!=0||timeTotal!=0){
 					  distance = df.format(dist.calculate(paceTotal, timeTotal));
 					  textField_3.setText(distance);
+					  }
 				  }
 				  if(comboBox.getSelectedItem()=="Kilometers"&&comboBox_2.getSelectedItem()=="Mile"){
+					  if(paceTotal!=0||timeTotal!=0){
 					  distance = df.format(dist.calculate(paceTotal, timeTotal)*1.60934);
 					  textField_3.setText(distance);
+					  }
 				  }
 				  if(comboBox.getSelectedItem()=="Miles"&&comboBox_2.getSelectedItem()=="Kilometer"){
+					  if(paceTotal!=0||timeTotal!=0){
 					  distance = df.format(dist.calculate(paceTotal, timeTotal)/1.60934);
 					  textField_3.setText(distance); 
+					  }
 				  }
 			  }
 			});
@@ -481,6 +491,18 @@ public class PaceCalculator extends JFrame {
 				  if(textField_2.getText().equals("")){
 					  textField_2.setText("0");
 				  }
+				  if(textField_3.getText().equals("")){
+					  textField_3.setText("0");
+				  }
+				  if(textField_4.getText().equals("")){
+					  textField_4.setText("0");
+				  }
+				  if(textField_5.getText().equals("")){
+					  textField_5.setText("0");
+				  }
+				  if(textField_6.getText().equals("")){
+					  textField_6.setText("0");
+				  }
 
 				  DecimalFormat df = new DecimalFormat("0.0000");
 				  DecimalFormat df2 = new DecimalFormat("0");
@@ -494,16 +516,18 @@ public class PaceCalculator extends JFrame {
 				  Pace paceClass = new Pace();
 				  UnitConverter unitConvert = new UnitConverter();
 
-				  if(timeHr<=0&&timeMin<=0&&timeSec<=0||distance<=0){
+				  if(timeHr==0&&timeMin==0&&timeSec==0||distance==0){
 					  JOptionPane.showMessageDialog(frmPAC, "To calculate Pace, enter a Distance and Time",
 							  "information", JOptionPane.INFORMATION_MESSAGE);
 				  }
 				  if(timeHr<0||timeMin<0||timeSec<0||distance<0){
 					  JOptionPane.showMessageDialog(frmPAC, "To calculate Pace, enter a Distance and Time",
 							  "information", JOptionPane.INFORMATION_MESSAGE);
+					  
 				  }
 				  if(comboBox.getSelectedItem()=="Miles"&& comboBox_2.getSelectedItem()=="Mile" 
 						  ||comboBox.getSelectedItem()=="Kilometers" &&comboBox_2.getSelectedItem()=="Kilometer"){
+					  if(paceTotal!=0){
 					  time = df.format(paceClass.calculate(paceTotal, distance));
 					  time2 = df.format(paceClass.calculate(paceTotal, distance));
 					  time3 = df.format(paceClass.calculate(paceTotal, distance));
@@ -516,8 +540,11 @@ public class PaceCalculator extends JFrame {
 					  
 					  time3 = unitConvert.asSeconds(Double.parseDouble(time3));
 					  textField_6.setText(time3);
+					  }
+					  
 				  }
 				  if(comboBox.getSelectedItem()=="Miles"&&comboBox_2.getSelectedItem()=="Kilometer"){
+					  if(paceTotal!=0){
 					  time = df.format(paceClass.calculate(paceTotal, distance*1.60934));
 					  time2 = df.format(paceClass.calculate(paceTotal, distance*1.60934));
 					  time3 = df.format(paceClass.calculate(paceTotal, distance*1.60934));
@@ -530,10 +557,12 @@ public class PaceCalculator extends JFrame {
 					  
 					  time3 = unitConvert.asSeconds(Double.parseDouble(time3));
 					  textField_6.setText(time3);
+					  }
 					  //textField_5.setText(Double.toString(timeMin/distance));
 					  //textField_6.setText(Double.toString(timeSec/distance));
 				  }
 				  if(comboBox.getSelectedItem()=="Kilometers"&&comboBox_2.getSelectedItem()=="Mile"){
+					  if(paceTotal!=0){
 					  time = df.format(paceClass.calculate(paceTotal, distance/1.60934));
 					  time2 = df.format(paceClass.calculate(paceTotal, distance/1.60934));
 					  time3 = df.format(paceClass.calculate(paceTotal, distance/1.60934));
@@ -548,6 +577,7 @@ public class PaceCalculator extends JFrame {
 					  textField_6.setText(time3);
 					  //textField_5.setText(Double.toString(timeMin/distance));
 					  //textField_6.setText(Double.toString(timeSec/distance));
+					  }
 				  }
 			  }
 			});
