@@ -396,6 +396,15 @@ public class PaceCalculator extends JFrame {
 		textField_3.setBounds(63, 11, 86, 20);
 		panel_2.add(textField_3);
 		
+		textField_3.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				if (textField.getText().length()>=0){
+					arg0.consume();
+				}
+			}
+		});
+		
 		JLabel label_8 = new JLabel("or");
 		label_8.setVisible(false);
 		label_8.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -493,6 +502,7 @@ public class PaceCalculator extends JFrame {
 					  textField_6.setText("0");
 				  }
 				  DecimalFormat df = new DecimalFormat("0.0000");
+				  DecimalFormat df2 = new DecimalFormat("0.0");
 				  
 				  timeHr = Double.parseDouble(textField.getText());
 				  timeMin = Double.parseDouble(textField_1.getText());

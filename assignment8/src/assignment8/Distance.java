@@ -1,5 +1,7 @@
 package assignment8;
 
+import java.text.DecimalFormat;
+
 public class Distance {
 	double distance=0;
 	
