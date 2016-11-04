@@ -74,6 +74,7 @@ public class PaceCalculator extends JFrame {
 //		contentPane.setLayout(new BorderLayout(0, 0));
 //		setContentPane(contentPane);
 		frmPAC = new JFrame();
+		frmPAC.setResizable(false);
 		frmPAC.getContentPane().setBackground(new Color(248, 248, 255));
 		frmPAC.getContentPane().setForeground(Color.CYAN);
 		frmPAC.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -81,7 +82,7 @@ public class PaceCalculator extends JFrame {
 		frmPAC.setForeground(Color.BLUE);
 		frmPAC.setFont(new Font("Dialog", Font.BOLD, 12));
 		frmPAC.setTitle("P A C E    C A L C U L A T O R");
-		frmPAC.setBounds(100, 100, 556, 338);
+		frmPAC.setBounds(100, 100, 543, 326);
 		frmPAC.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmPAC.getContentPane().setLayout(null);
 		

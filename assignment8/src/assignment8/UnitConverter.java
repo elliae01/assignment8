@@ -77,7 +77,8 @@ public class UnitConverter {
 			seconds=Math.round(seconds*100)/100D;
 			//seconds=seconds%60;
 		}
-		return Double.toString(seconds);
+		time = df2.format(seconds);
+		return time;
 	}
 }
 
