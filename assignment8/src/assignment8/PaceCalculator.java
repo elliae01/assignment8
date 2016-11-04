@@ -667,7 +667,7 @@ public class PaceCalculator extends JFrame {
 				  }
 
 				  DecimalFormat df = new DecimalFormat("0.0000");
-				  DecimalFormat df2 = new DecimalFormat("0");
+				  //DecimalFormat df2 = new DecimalFormat("0");
 				  
 				  distance = Double.parseDouble(textField_3.getText());
 				  timeHr = Double.parseDouble(textField.getText());
