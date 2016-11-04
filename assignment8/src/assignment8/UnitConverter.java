@@ -74,7 +74,7 @@ public class UnitConverter {
 		//time = df2.format(seconds);
 		if(seconds>=60){
 			seconds=seconds%60;
-			seconds=Math.round(seconds*100)/100D;
+			//seconds=Math.round(seconds*100)/100D;
 			//seconds=seconds%60;
 		}
 		time = df2.format(seconds);
