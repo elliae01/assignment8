@@ -23,6 +23,8 @@ import assignment8.Pace;
 import assignment8.UnitConverter;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+
 import java.awt.event.InputMethodListener;
 import java.awt.event.InputMethodEvent;
 import java.awt.event.KeyAdapter;
@@ -86,25 +88,32 @@ public class PaceCalculator extends JFrame {
 		frmPAC.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmPAC.getContentPane().setLayout(null);
 		
+		ImageIcon img = new ImageIcon("pace10.png");
+		frmPAC.setIconImage(img.getImage());
+		
 		Panel panel = new Panel();
-		panel.setBackground(new Color(173, 216, 230));
+		panel.setBackground(new Color(135, 206, 250));
 		panel.setBounds(0, 0, 86, 299);
 		frmPAC.getContentPane().add(panel);
 		panel.setLayout(null);
 		
+		JLabel b2 = new JLabel(new ImageIcon("pace5.png"));
+		b2.setBounds(0, 0, 84, 47);
+		panel.add(b2);
+		
 		JLabel label = new JLabel("Time");
 		label.setFont(new Font("Tahoma", Font.BOLD, 13));
-		label.setBounds(10, 43, 46, 14);
+		label.setBounds(10, 56, 46, 14);
 		panel.add(label);
 		
 		JLabel label_1 = new JLabel("Distance");
 		label_1.setFont(new Font("Tahoma", Font.BOLD, 13));
-		label_1.setBounds(10, 107, 74, 14);
+		label_1.setBounds(10, 134, 74, 14);
 		panel.add(label_1);
 		
 		JLabel label_2 = new JLabel("Pace");
 		label_2.setFont(new Font("Tahoma", Font.BOLD, 13));
-		label_2.setBounds(10, 204, 46, 14);
+		label_2.setBounds(10, 236, 46, 14);
 		panel.add(label_2);
 		
 		Panel panel_1 = new Panel();
@@ -271,7 +280,7 @@ public class PaceCalculator extends JFrame {
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setVisible(false);
-		comboBox.setBounds(52, 30, 109, 20);
+		comboBox.setBounds(1, 11, 52, 20);
 		comboBox.addItem("Miles");
 		comboBox.addItem("Kilometers");
 		panel_2.add(comboBox);
@@ -391,7 +400,6 @@ public class PaceCalculator extends JFrame {
 			});
 
 		textField_3 = new JTextField();
-		textField_3.setVisible(false);
 		textField_3.setColumns(10);
 		textField_3.setBounds(63, 11, 86, 20);
 		panel_2.add(textField_3);
