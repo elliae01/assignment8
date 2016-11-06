@@ -643,8 +643,7 @@ public class PaceCalculator extends JFrame {
 					if (arg0.getKeyChar()==KeyEvent.VK_DELETE){
 				} else
 					if (arg0.getKeyChar()==KeyEvent.VK_ENTER){
-//						JOptionPane.showMessageDialog(frmPAC, "You Pressed Enter.",
-//								  "Information", JOptionPane.INFORMATION_MESSAGE);
+
 						textField_6.requestFocus();
 						textField_6.selectAll();;
 				} else				
