@@ -29,6 +29,7 @@ import java.awt.event.InputMethodListener;
 import java.awt.event.InputMethodEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.math.RoundingMode;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
@@ -80,8 +81,8 @@ public class PaceCalculator extends JFrame {
 		frmPAC.getContentPane().setBackground(new Color(248, 248, 255));
 		frmPAC.getContentPane().setForeground(Color.CYAN);
 		frmPAC.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 13));
-		frmPAC.setBackground(Color.BLUE);
-		frmPAC.setForeground(Color.BLUE);
+		frmPAC.setBackground(new Color(0, 0, 255));
+		frmPAC.setForeground(new Color(0, 0, 255));
 		frmPAC.setFont(new Font("Dialog", Font.BOLD, 12));
 		frmPAC.setTitle("P A C E    C A L C U L A T O R");
 		frmPAC.setBounds(100, 100, 543, 326);
@@ -224,7 +225,7 @@ public class PaceCalculator extends JFrame {
 		textField_2.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent arg0) {
-				if (textField_2.getText().length()>=3){
+				if (textField_2.getText().length()>3){
 					arg0.consume();
 				}
 				if (arg0.getKeyChar()=='.'){
@@ -327,13 +328,15 @@ public class PaceCalculator extends JFrame {
 						  || Double.parseDouble(textField_6.getText())<=0){
 					  textField_6.setText("0");
 				  }
-				  DecimalFormat df = new DecimalFormat("0.0000");
-				  DecimalFormat df2 = new DecimalFormat("0");
+				  DecimalFormat df = new DecimalFormat("0.000000");
+				  DecimalFormat df2 = new DecimalFormat("0.000000");
+				  df.setRoundingMode(RoundingMode.DOWN);
+				  df2.setRoundingMode(RoundingMode.DOWN);
 				  
 				  distance = Double.parseDouble(textField_3.getText());
 				  paceHr = Double.parseDouble(textField_4.getText());
 				  paceMin = Double.parseDouble(textField_5.getText());
-				  paceSec = Double.parseDouble(textField_6.getText());
+				  paceSec = Math.round(Double.parseDouble(textField_6.getText()));
 				  
 				  paceTotal = (paceHr)+(paceMin/60)+(paceSec/60/60);
 				  //System.out.println(paceTotal);
@@ -351,7 +354,7 @@ public class PaceCalculator extends JFrame {
 				  }
 				  if(comboBox.getSelectedItem()=="Miles"&& comboBox_2.getSelectedItem()=="Mile" 
 						  ||comboBox.getSelectedItem()=="Kilometers" &&comboBox_2.getSelectedItem()=="Kilometer"){
-					  time = df.format(timeClass.calculate(paceTotal, distance));
+					  time = df2.format(timeClass.calculate(paceTotal, distance));
 					  time2 = df.format(timeClass.calculate(paceTotal, distance));
 					  time3 = df.format(timeClass.calculate(paceTotal, distance));
 					  
@@ -365,7 +368,7 @@ public class PaceCalculator extends JFrame {
 					  textField_2.setText(time3);
 				  }
 				  if(comboBox.getSelectedItem()=="Kilometers"&&comboBox_2.getSelectedItem()=="Mile"){
-					  time = df.format(timeClass.calculate(paceTotal, distance/1.60934));
+					  time = df2.format(timeClass.calculate(paceTotal, distance/1.60934));
 					  time2 = df.format(timeClass.calculate(paceTotal, distance/1.60934));
 					  time3 = df.format(timeClass.calculate(paceTotal, distance/1.60934));
 					  
@@ -445,8 +448,8 @@ public class PaceCalculator extends JFrame {
 			  comboBox.setSelectedItem("Kilometers");
 			}
 			if(sec=="Half-Marathon") {
-			  textField_3.setText("13.109375");
-			  comboBox.setSelectedItem("Kilometers");
+			  textField_3.setText("13.1");
+			  comboBox.setSelectedItem("Miles");
 			}
 		  }
 		});
@@ -509,8 +512,11 @@ public class PaceCalculator extends JFrame {
 						  || Double.parseDouble(textField_6.getText())<=0){
 					  textField_6.setText("0");
 				  }
-				  DecimalFormat df = new DecimalFormat("0.0000");
-				  DecimalFormat df2 = new DecimalFormat("0.0");
+
+				  DecimalFormat df = new DecimalFormat("0.0");
+				  DecimalFormat df2 = new DecimalFormat("0");
+				  df.setRoundingMode(RoundingMode.DOWN);
+				  df2.setRoundingMode(RoundingMode.DOWN);
 				  
 				  timeHr = Double.parseDouble(textField.getText());
 				  timeMin = Double.parseDouble(textField_1.getText());
@@ -547,7 +553,7 @@ public class PaceCalculator extends JFrame {
 				  }
 				  if(comboBox.getSelectedItem()=="Miles"&&comboBox_2.getSelectedItem()=="Kilometer"){
 					  if(paceTotal!=0||timeTotal!=0){
-					  distance = df.format(dist.calculate(paceTotal, timeTotal)/1.60934);
+					  distance = df2.format(dist.calculate(paceTotal, timeTotal)/1.60934);
 					  textField_3.setText(distance); 
 					  }
 				  }
@@ -717,13 +723,15 @@ public class PaceCalculator extends JFrame {
 					  textField_6.setText("0");
 				  }
 
-				  DecimalFormat df = new DecimalFormat("0.0000");
-				  //DecimalFormat df2 = new DecimalFormat("0");
+				  DecimalFormat df = new DecimalFormat("0.000000");
+				  DecimalFormat df2 = new DecimalFormat("0.000000");
+				  df.setRoundingMode(RoundingMode.DOWN);
+				  df2.setRoundingMode(RoundingMode.DOWN);
 				  
 				  distance = Double.parseDouble(textField_3.getText());
 				  timeHr = Double.parseDouble(textField.getText());
 				  timeMin = Double.parseDouble(textField_1.getText());
-				  timeSec = Double.parseDouble(textField_2.getText());
+				  timeSec = Math.round(Double.parseDouble(textField_2.getText()));
 				  paceTotal = (timeHr)+(timeMin/60)+(timeSec/60/60);
 				  
 				  Pace paceClass = new Pace();
@@ -740,11 +748,10 @@ public class PaceCalculator extends JFrame {
 				  }
 				  if(comboBox.getSelectedItem()=="Miles"&& comboBox_2.getSelectedItem()=="Mile" 
 						  ||comboBox.getSelectedItem()=="Kilometers" &&comboBox_2.getSelectedItem()=="Kilometer"){
-					  if(paceTotal!=0){
-					  time = df.format(paceClass.calculate(paceTotal, distance));
+					  if(paceTotal!=0&&distance!=0){
+					  time = df2.format(paceClass.calculate(paceTotal, distance));
 					  time2 = df.format(paceClass.calculate(paceTotal, distance));
 					  time3 = df.format(paceClass.calculate(paceTotal, distance));
-					  
 					  time = unitConvert.asHours(Double.parseDouble(time));
 					  textField_4.setText(time);
 					  
@@ -753,12 +760,14 @@ public class PaceCalculator extends JFrame {
 					  
 					  time3 = unitConvert.asSeconds(Double.parseDouble(time3));
 					  textField_6.setText(time3);
+
+					  
 					  }
 					  
 				  }
 				  if(comboBox.getSelectedItem()=="Miles"&&comboBox_2.getSelectedItem()=="Kilometer"){
-					  if(paceTotal!=0){
-					  time = df.format(paceClass.calculate(paceTotal, distance*1.60934));
+					  if(paceTotal!=0&&distance!=0){
+					  time = df2.format(paceClass.calculate(paceTotal, distance*1.60934));
 					  time2 = df.format(paceClass.calculate(paceTotal, distance*1.60934));
 					  time3 = df.format(paceClass.calculate(paceTotal, distance*1.60934));
 					  
@@ -767,16 +776,16 @@ public class PaceCalculator extends JFrame {
 					  
 					  time2 = unitConvert.asMinutes(Double.parseDouble(time2));
 					  textField_5.setText(time2);
-					  
+			
 					  time3 = unitConvert.asSeconds(Double.parseDouble(time3));
 					  textField_6.setText(time3);
+			
 					  }
-					  //textField_5.setText(Double.toString(timeMin/distance));
-					  //textField_6.setText(Double.toString(timeSec/distance));
+
 				  }
 				  if(comboBox.getSelectedItem()=="Kilometers"&&comboBox_2.getSelectedItem()=="Mile"){
-					  if(paceTotal!=0){
-					  time = df.format(paceClass.calculate(paceTotal, distance/1.60934));
+					  if(paceTotal!=0&&distance!=0){
+					  time = df2.format(paceClass.calculate(paceTotal, distance/1.60934));
 					  time2 = df.format(paceClass.calculate(paceTotal, distance/1.60934));
 					  time3 = df.format(paceClass.calculate(paceTotal, distance/1.60934));
 					  
@@ -785,19 +794,15 @@ public class PaceCalculator extends JFrame {
 					  
 					  time2 = unitConvert.asMinutes(Double.parseDouble(time2));
 					  textField_5.setText(time2);
-					  
+	
 					  time3 = unitConvert.asSeconds(Double.parseDouble(time3));
 					  textField_6.setText(time3);
-					  //textField_5.setText(Double.toString(timeMin/distance));
-					  //textField_6.setText(Double.toString(timeSec/distance));
+					  
 					  }
 				  }
 			  }
 			});
-			System.out.println("PaceCalc");
 	}
-	public JTextField getTextField_1() {
-		return textField_1;
-	}
+
 	}
 
