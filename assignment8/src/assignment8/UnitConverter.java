@@ -28,7 +28,7 @@ public class UnitConverter {
 		minutes = minutes/.1;
 		minutes = minutes * 6;
 		minutes = minutes%60;
-		//df2.setRoundingMode(RoundingMode.DOWN);
+		df.setRoundingMode(RoundingMode.HALF_UP);
 		String time = df.format(minutes);
 		return time;
 	}
