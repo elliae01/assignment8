@@ -2,7 +2,7 @@ package assignment8;
 
 public class Time {
 
-	double time = 0.0;
+	private double time = 0.0;
 
 	public Time() {
 
@@ -16,7 +16,7 @@ public class Time {
 	 * @return time as same time unit in pace
 	 */
 	public double calculate(double pace, double distance) {
-		time = distance*pace;
+		time = distance * pace;
 
 		return time;
 	}

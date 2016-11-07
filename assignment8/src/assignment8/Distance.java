@@ -1,12 +1,9 @@
 package assignment8;
 
-import java.text.DecimalFormat;
-
 public class Distance {
-	double distance=0;
+	private double distance = 0;
 	
 	public Distance() {
-
 	}
 
 	/**
@@ -17,8 +14,8 @@ public class Distance {
 	 * @param time as same time unit as pace
 	 * @return distance as unit used in pace
 	 */
-	public double calculate(double pace, double time){
-		distance=time/pace;
+	public double calculate(double pace, double time) {
+		distance = time / pace;
 		return distance;
 	}
 }

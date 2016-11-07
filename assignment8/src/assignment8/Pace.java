@@ -18,7 +18,7 @@ public class Pace {
 	 * @return pace as units provided in both parameters
 	 */
 	public double calculate(double time, double distance) {
-		pace = time/distance;
+		pace = time / distance;
 
 		return pace;
 	}

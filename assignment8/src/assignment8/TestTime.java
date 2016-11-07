@@ -23,86 +23,82 @@ import org.junit.Test;
  *half marathon = 13.1 miles
  */
 public class TestTime {
-	Time time = new Time();
-	
+	private Time time = new Time();
+
 	@Test
-	public void test_c1() {
-		double pace = 6.92;  // min/mile
-		pace = 1/pace ; //miles/min
-		double distance = 3.10686;  // 5k = 3.10686 miles
+	public void testCase1() {
+		double pace = 6.92; // min/mile
+		pace = 1 / pace; // miles/min
+		double distance = 3.10686; // 5k = 3.10686 miles
 		double expectedResult = 0.4489; // hours
-		double actualResult = time.calculate(pace, distance);  // t=d/p  mi/min/mi
-		
+		double actualResult = time.calculate(pace, distance); // t=d/p mi/min/mi
+
 		assertEquals(expectedResult, actualResult, 0.1);
 	}
-	
+
 	@Test
-	public void test_c2() {
+	public void testCase2() {
 		double pace = 7.93; // min/mile
-		pace = 1/pace ; //miles/min
+		pace = 1 / pace; // miles/min
 		double distance = 5.0; // 5 mile
 		double expectedResult = 0.6305; // 1:43:57
 		double actualResult = time.calculate(pace, distance);
-		
+
 		assertEquals(expectedResult, actualResult, 0.1);
 	}
-	
+
 	@Test
-	public void test_c3() {
-		double pace = 7.0;  // min/mile
-		pace = 1/pace ;  //miles/min
+	public void testCase3() {
+		double pace = 7.0; // min/mile
+		pace = 1 / pace; // miles/min
 		double distance = 6.21371; // 10k = 6.21371 miles
 		double expectedResult = 0.8876;
 		double actualResult = time.calculate(pace, distance);
-		
+
 		assertEquals(expectedResult, actualResult, 0.1);
 	}
-	
+
 	@Test
-	public void test_c4()
-	{
+	public void testCase4() {
 		double pace = 0.1; // min/mile
 		pace = 1 / pace; // miles/min
 		double distance = 13.1; // half-marathon = 13.1 miles
 		double expectedResult = 131.0;
-		double actualResult = time.calculate(pace,  distance);
-		
+		double actualResult = time.calculate(pace, distance);
+
 		assertEquals(expectedResult, actualResult, 0.1);
 	}
-	
+
 	@Test
-	public void test_c5()
-	{
+	public void testCase5() {
 		double pace = 20.0; // min/mile (upper bounds, valid data)
 		pace = 1 / pace; // miles/min
 		double distance = 5.0; // 5 miles
 		double expectedResult = 0.25;
-		double actualResult = time.calculate(pace,  distance);
-		
+		double actualResult = time.calculate(pace, distance);
+
 		assertEquals(expectedResult, actualResult, 0.1);
 	}
-	
+
 	@Test
-	public void test_c6()
-	{
+	public void testCase6() {
 		double pace = 10.0; // min/mile
 		pace = 1 / pace; // miles/min
 		double distance = 13.1; // half marathon = 13.1 miles
 		double expectedResult = 1.31;
-		double actualResult = time.calculate(pace,  distance);
-		
+		double actualResult = time.calculate(pace, distance);
+
 		assertEquals(expectedResult, actualResult, 0.1);
 	}
-	
+
 	@Test
-	public void test_c7()
-	{
+	public void testCase7() {
 		double pace = 4.28; // min/mile
 		pace = 1 / pace; // miles/min
 		double distance = 3.10686; // 5k = 3.10686
 		double expectedResult = 0.7259;
-		double actualResult = time.calculate(pace,  distance);
-		
+		double actualResult = time.calculate(pace, distance);
+
 		assertEquals(expectedResult, actualResult, 0.1);
 	}
 }

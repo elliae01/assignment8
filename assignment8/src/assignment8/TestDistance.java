@@ -17,62 +17,60 @@ import org.junit.Test;
  *Time - 21:32, 21:28
  */
 public class TestDistance {
-	static Distance myDist;
+	private static Distance myDist;
 
-	@BeforeClass 
-	public static void setupBeforeClass()
-	{
-		 myDist = new Distance();
+	@BeforeClass
+	public static void setupBeforeClass() {
+		myDist = new Distance();
 	}
 
 	@Test
-	public void test_c1() {
+	public void testCase1() {
 		double pace = 6.92; // Reverse of item 3
 		double time = 21.5; // 10k
-		double expectedResult =3.1; // Reverse of item 3
+		double expectedResult = 3.1; // Reverse of item 3
 		double actualResult = myDist.calculate(pace, time);
-		
+
 		assertEquals(expectedResult, actualResult, 0.1);
 	}
-	
+
 	@Test
-	public void test_c2() {
+	public void testCase2() {
 		double pace = 7.92; // 7:55.8
-		double time =103.95; //1:43:57
+		double time = 103.95; // 1:43:57
 		double expectedResult = 13.1094; // half marathon = 21.0975k
-		double actualResult =myDist.calculate(pace, time);
-		
+		double actualResult = myDist.calculate(pace, time);
+
 		assertEquals(expectedResult, actualResult, 0.1);
 	}
-	
+
 	@Test
-	public void test_c3() {
+	public void testCase3() {
 		double pace = 7.0;
 		double time = 43.49666;
 		double expectedResult = 6.2;
 		double actualResult = myDist.calculate(pace, time);
-		
+
 		assertEquals(expectedResult, actualResult, 0.1);
 	}
-	
+
 	@Test
-	public void testCalculateDistance1() {
+	public void testCase4() {
 		double pace = 7.0; // min mile
 		double time = 60; // min
 		double expectedResult = 8.57;
 		double actualResult = myDist.calculate(pace, time);
-		
+
 		assertEquals(expectedResult, actualResult, 0.1);
 	}
 
 	@Test
-	public void testCalculateDistance2() {
+	public void testCase5() {
 		double pace = 1.0;
 		double time = 10;
 		double expectedResult = 10;
 		double actualResult = myDist.calculate(pace, time);
-		
+
 		assertEquals(expectedResult, actualResult, 0.1);
 	}
-
 }
