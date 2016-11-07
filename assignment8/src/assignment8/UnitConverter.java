@@ -48,7 +48,7 @@ public class UnitConverter {
 			seconds=0;
 		}
 		//df2.setRoundingMode(RoundingMode.DOWN);
-		//round
+		//rounding
 		String time = df2.format(seconds);
 		return time;
 	}
