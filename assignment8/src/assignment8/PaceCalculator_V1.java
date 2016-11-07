@@ -542,6 +542,6 @@ public class PaceCalculator_V1 extends JFrame {
 				  }
 			  }
 			});
-			System.out.println("PaceCalc");
+			System.out.println("PaceCalcV1");
 	}
 }
