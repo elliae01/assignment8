@@ -404,7 +404,7 @@ public class PaceCalculator extends JFrame {
 
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(63, 11, 86, 20);
+		textField_3.setBounds(85, 11, 46, 20);
 		panel_2.add(textField_3);
 		
 		textField_3.addKeyListener(new KeyAdapter() {
@@ -412,6 +412,9 @@ public class PaceCalculator extends JFrame {
 			public void keyTyped(KeyEvent arg0) {
 				if (textField.getText().length()>=0){
 					arg0.consume();
+				}
+				if (arg0.getKeyChar()>'9'|arg0.getKeyChar()<'0'){
+					arg0.setKeyChar((char) 0);;
 				}
 			}
 		});
@@ -474,6 +477,10 @@ public class PaceCalculator extends JFrame {
 		button_1.setFont(new Font("Tahoma", Font.BOLD, 13));
 		button_1.setBounds(265, 61, 157, 23);
 		panel_2.add(button_1);
+		
+		JLabel lblMiles = new JLabel("miles");
+		lblMiles.setBounds(136, 14, 46, 14);
+		panel_2.add(lblMiles);
 
 		button_1.addActionListener( new ActionListener()
 		{
@@ -803,6 +810,5 @@ public class PaceCalculator extends JFrame {
 			  }
 			});
 	}
-
 	}
 
