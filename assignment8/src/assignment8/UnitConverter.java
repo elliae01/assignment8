@@ -25,16 +25,18 @@ public class UnitConverter {
 	
 	public String asMinutes(double minutes)
 	{
+		System.out.println(minutes+" minutes");
 		minutes = minutes/.1;
 		minutes = minutes * 6;
 		minutes = minutes%60;
-		df.setRoundingMode(RoundingMode.HALF_UP);
+		df.setRoundingMode(RoundingMode.HALF_EVEN);
 		String time = df.format(minutes);
 		return time;
 	}
 	
 	public String asSeconds(double seconds)
 	{
+		System.out.println(seconds+" seconds");
 		seconds = seconds/.1;
 		seconds = seconds * 6;
 		seconds = seconds%60;
