@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 public class UnitConverter {
 	
 	DecimalFormat df = new DecimalFormat("0");
-	DecimalFormat df2 = new DecimalFormat("0.0");
+	DecimalFormat df2 = new DecimalFormat("0.#");
 	
 	public UnitConverter()
 	{
@@ -47,7 +47,7 @@ public class UnitConverter {
 		if(seconds>50.5){
 			seconds=0;
 		}
-		df2.setRoundingMode(RoundingMode.DOWN);
+		//df2.setRoundingMode(RoundingMode.DOWN);
 		String time = df2.format(seconds);
 		return time;
 	}
