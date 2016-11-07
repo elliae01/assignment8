@@ -435,17 +435,18 @@ public class PaceCalculator extends JFrame {
 		  public void actionPerformed(ActionEvent e)
 		  {
 			  String sec = comboBox_1.getSelectedItem().toString();
+			  //add user input from event to miles
 			if(sec=="5K"){
-				textField_3.setText("5");
-				comboBox.setSelectedItem("Kilometers");
+				textField_3.setText("3.1");
+				comboBox.setSelectedItem("Miles");
 			}
 			if(sec=="5-Mile"){
 				textField_3.setText("5");
 				comboBox.setSelectedItem("Miles");
 			}
 			if(sec=="10K"){
-			  textField_3.setText("10");
-			  comboBox.setSelectedItem("Kilometers");
+			  textField_3.setText("6.2");
+			  comboBox.setSelectedItem("Miles");
 			}
 			if(sec=="Half-Marathon") {
 			  textField_3.setText("13.1");
