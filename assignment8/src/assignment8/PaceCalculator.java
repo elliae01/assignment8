@@ -333,7 +333,7 @@ public class PaceCalculator extends JFrame {
 				distance = Double.parseDouble(textFieldDistance.getText());
 				paceHr = Double.parseDouble(textFieldPaceHours.getText());
 				paceMin = Double.parseDouble(textFieldPaceMinutes.getText());
-				paceSec = Math.round(Double.parseDouble(textFieldPaceSeconds.getText()));
+				paceSec = Double.parseDouble(textFieldPaceSeconds.getText());
 
 				paceTotal = (paceHr) + (paceMin / 60) + (paceSec / 60 / 60);
 				// System.out.println(paceTotal);
@@ -487,6 +487,7 @@ public class PaceCalculator extends JFrame {
 		distanceClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textFieldDistance.setText("");
+				comboBox_1.setSelectedItem("Pick Event");
 			}
 		});
 
@@ -703,6 +704,7 @@ public class PaceCalculator extends JFrame {
 				textFieldPaceHours.setText("");
 				textFieldPaceMinutes.setText("");
 				textFieldPaceSeconds.setText("");
+				comboBox_1.setSelectedItem("Pick Event");
 			}
 		});
 		
@@ -766,7 +768,7 @@ public class PaceCalculator extends JFrame {
 				distance = Double.parseDouble(textFieldDistance.getText());
 				timeHr = Double.parseDouble(textFieldTimeHours.getText());
 				timeMin = Double.parseDouble(textFieldTimeMinutes.getText());
-				timeSec = Math.round(Double.parseDouble(textFieldTimeSeconds.getText()));
+				timeSec = Double.parseDouble(textFieldTimeSeconds.getText());
 				paceTotal = (timeHr) + (timeMin / 60) + (timeSec / 60 / 60);
 
 				Pace paceClass = new Pace();

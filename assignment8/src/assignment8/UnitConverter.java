@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 public class UnitConverter {
 
 	private DecimalFormat df = new DecimalFormat("0");
-	private DecimalFormat df2 = new DecimalFormat("0.#");
+	private DecimalFormat df2 = new DecimalFormat("#.#");
 
 	public UnitConverter() {
 
@@ -22,29 +22,29 @@ public class UnitConverter {
 	}
 
 	public String asMinutes(double minutes) {
-		System.out.println(minutes + " minutes");
-		minutes = minutes / .1;
 		minutes = minutes * 6;
-		minutes = minutes % 60;
-		df.setRoundingMode(RoundingMode.HALF_EVEN);
+        minutes = minutes *10;
+		if(minutes>60){
+			minutes=minutes%60;
+		}
+		
+		//df.setRoundingMode(RoundingMode.HALF_EVEN);
 		String time = df.format(minutes);
 		return time;
 	}
 
 	public String asSeconds(double seconds) {
-		System.out.println(seconds + " seconds");
-		seconds = seconds / .1;
-		seconds = seconds * 6;
-		seconds = seconds % 60;
-		seconds = seconds * 60;
-		if (seconds > 60) {
-			seconds = seconds % 60;
+	    seconds = seconds * 6;
+		if(seconds<1){
+			seconds = seconds * 6;
+			seconds = seconds * 100;
 		}
-		if (seconds > 50.5) {
-			seconds = 0;
+
+		if(seconds>60){
+			seconds=seconds%60;
 		}
-		// df2.setRoundingMode(RoundingMode.DOWN);
-		// rounding
+		df2.setRoundingMode(RoundingMode.DOWN);
+		
 		String time = df2.format(seconds);
 		return time;
 	}
