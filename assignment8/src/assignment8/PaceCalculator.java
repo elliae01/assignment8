@@ -141,6 +141,11 @@ public class PaceCalculator extends JFrame {
 					// "Information", JOptionPane.INFORMATION_MESSAGE);
 					textFieldTimeMinutes.requestFocus();
 					textFieldTimeMinutes.selectAll();
+					if ( Double.parseDouble(textFieldTimeHours.getText()) >= 4) {
+						textFieldTimeHours.setText("4");
+						textFieldTimeMinutes.setText("0");
+						textFieldTimeSeconds.setText("0");
+					}
 					;
 				} else if (arg0.getKeyChar() > '9' | arg0.getKeyChar() < '0') {
 					JOptionPane.showMessageDialog(frmPAC, "That key was not a number.", "Information",
@@ -148,6 +153,7 @@ public class PaceCalculator extends JFrame {
 					arg0.setKeyChar((char) 0);
 					;
 				}
+				
 			}
 		});
 		textFieldTimeHours.setColumns(10);
@@ -615,6 +621,10 @@ public class PaceCalculator extends JFrame {
 					// JOptionPane.showMessageDialog(frmPAC, "You Pressed
 					// Enter.",
 					// "Information", JOptionPane.INFORMATION_MESSAGE);
+					if ( Double.parseDouble(textFieldPaceMinutes.getText()) >= 20) {
+						textFieldPaceMinutes.setText("20");
+						textFieldPaceSeconds.setText("0");
+					}
 					textFieldPaceSeconds.requestFocus();
 					textFieldPaceSeconds.selectAll();
 				} else if (arg0.getKeyChar() > '9' | arg0.getKeyChar() < '0') {
