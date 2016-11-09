@@ -106,15 +106,15 @@ public class PaceCalculator extends JFrame {
 		labelPace.setBounds(10, 236, 46, 14);
 		panel.add(labelPace);
 
-		Panel panel_1 = new Panel();
-		panel_1.setBackground(SystemColor.activeCaption);
-		panel_1.setBounds(85, 0, 492, 100);
-		frmPAC.getContentPane().add(panel_1);
-		panel_1.setLayout(null);
+		Panel panelTimePanel = new Panel();
+		panelTimePanel.setBackground(SystemColor.activeCaption);
+		panelTimePanel.setBounds(85, 0, 492, 100);
+		frmPAC.getContentPane().add(panelTimePanel);
+		panelTimePanel.setLayout(null);
 
-		JLabel label_3 = new JLabel("hours");
-		label_3.setBounds(20, 42, 46, 14);
-		panel_1.add(label_3);
+		JLabel labelTimeHours = new JLabel("hours");
+		labelTimeHours.setBounds(20, 42, 46, 14);
+		panelTimePanel.add(labelTimeHours);
 
 		textFieldTimeHours = new JTextField();
 		textFieldTimeHours.addFocusListener(new FocusAdapter() {
@@ -152,11 +152,11 @@ public class PaceCalculator extends JFrame {
 		});
 		textFieldTimeHours.setColumns(10);
 		textFieldTimeHours.setBounds(10, 57, 56, 20);
-		panel_1.add(textFieldTimeHours);
+		panelTimePanel.add(textFieldTimeHours);
 
-		JLabel label_4 = new JLabel("mins");
-		label_4.setBounds(90, 42, 46, 14);
-		panel_1.add(label_4);
+		JLabel labelTimeMins = new JLabel("mins");
+		labelTimeMins.setBounds(90, 42, 46, 14);
+		panelTimePanel.add(labelTimeMins);
 
 		textFieldTimeMinutes = new JTextField();
 		textFieldTimeMinutes.addFocusListener(new FocusAdapter() {
@@ -195,11 +195,11 @@ public class PaceCalculator extends JFrame {
 		});
 		textFieldTimeMinutes.setColumns(10);
 		textFieldTimeMinutes.setBounds(84, 57, 38, 20);
-		panel_1.add(textFieldTimeMinutes);
+		panelTimePanel.add(textFieldTimeMinutes);
 
-		JLabel label_5 = new JLabel("secs");
-		label_5.setBounds(158, 42, 46, 14);
-		panel_1.add(label_5);
+		JLabel labelTimeSecs = new JLabel("secs");
+		labelTimeSecs.setBounds(158, 42, 46, 14);
+		panelTimePanel.add(labelTimeSecs);
 
 		textFieldTimeSeconds = new JTextField();
 		textFieldTimeSeconds.addFocusListener(new FocusAdapter() {
@@ -241,28 +241,28 @@ public class PaceCalculator extends JFrame {
 		});
 		textFieldTimeSeconds.setColumns(10);
 		textFieldTimeSeconds.setBounds(133, 57, 74, 20);
-		panel_1.add(textFieldTimeSeconds);
+		panelTimePanel.add(textFieldTimeSeconds);
 
-		JLabel label_6 = new JLabel("To calculate you time, fill in your");
-		label_6.setVisible(false);
-		label_6.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		label_6.setBounds(242, 29, 211, 14);
-		panel_1.add(label_6);
+		JLabel labelPromptForDistAndPace = new JLabel("To calculate you time, fill in your");
+		labelPromptForDistAndPace.setVisible(false);
+		labelPromptForDistAndPace.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		labelPromptForDistAndPace.setBounds(242, 29, 211, 14);
+		panelTimePanel.add(labelPromptForDistAndPace);
 
-		JLabel label_7 = new JLabel("distance and pace then click here:");
-		label_7.setVisible(false);
-		label_7.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		label_7.setBounds(242, 42, 200, 14);
-		panel_1.add(label_7);
+		JLabel labelPromptForDistAndPaceCont = new JLabel("distance and pace then click here:");
+		labelPromptForDistAndPaceCont.setVisible(false);
+		labelPromptForDistAndPaceCont.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		labelPromptForDistAndPaceCont.setBounds(242, 42, 200, 14);
+		panelTimePanel.add(labelPromptForDistAndPaceCont);
 
 		JButton button = new JButton("Calculate Time");
 		button.setFont(new Font("Tahoma", Font.BOLD, 13));
 		button.setBounds(273, 57, 129, 20);
-		panel_1.add(button);
-		
+		panelTimePanel.add(button);
+
 		JButton timeClear = new JButton("Clear");
 		timeClear.setBounds(400, 56, 67, 21);
-		panel_1.add(timeClear);
+		panelTimePanel.add(timeClear);
 		timeClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textFieldTimeHours.setText("");
@@ -272,31 +272,31 @@ public class PaceCalculator extends JFrame {
 			}
 		});
 
-		Panel panel_2 = new Panel();
-		panel_2.setBackground(SystemColor.inactiveCaption);
-		panel_2.setBounds(85, 98, 492, 100);
-		frmPAC.getContentPane().add(panel_2);
-		panel_2.setLayout(null);
+		Panel panelDistance = new Panel();
+		panelDistance.setBackground(SystemColor.inactiveCaption);
+		panelDistance.setBounds(85, 98, 492, 100);
+		frmPAC.getContentPane().add(panelDistance);
+		panelDistance.setLayout(null);
 
 		JComboBox comboBox = new JComboBox();
 		comboBox.setVisible(false);
 		comboBox.setBounds(1, 11, 52, 20);
 		comboBox.addItem("Miles");
 		comboBox.addItem("Kilometers");
-		panel_2.add(comboBox);
+		panelDistance.add(comboBox);
 
-		Panel panel_3 = new Panel();
-		panel_3.setBackground(SystemColor.activeCaption);
-		panel_3.setBounds(85, 199, 492, 125);
-		frmPAC.getContentPane().add(panel_3);
-		panel_3.setLayout(null);
+		Panel panelPace = new Panel();
+		panelPace.setBackground(SystemColor.activeCaption);
+		panelPace.setBounds(85, 199, 492, 125);
+		frmPAC.getContentPane().add(panelPace);
+		panelPace.setLayout(null);
 
-		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setVisible(false);
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] { "Mile" }));
-		comboBox_2.setBounds(10, 92, 109, 20);
+		JComboBox comboBoxMiles = new JComboBox();
+		comboBoxMiles.setVisible(false);
+		comboBoxMiles.setModel(new DefaultComboBoxModel(new String[] { "Mile" }));
+		comboBoxMiles.setBounds(10, 92, 109, 20);
 		// comboBox_2.addItem("Kilometer");
-		panel_3.add(comboBox_2);
+		panelPace.add(comboBoxMiles);
 
 		button.addActionListener(new ActionListener() {
 			private double distance;
@@ -350,8 +350,8 @@ public class PaceCalculator extends JFrame {
 					JOptionPane.showMessageDialog(frmPAC, "To calculate Time, enter a Distance and Pace", "information",
 							JOptionPane.INFORMATION_MESSAGE);
 				}
-				if (comboBox.getSelectedItem() == "Miles" && comboBox_2.getSelectedItem() == "Mile"
-						|| comboBox.getSelectedItem() == "Kilometers" && comboBox_2.getSelectedItem() == "Kilometer") {
+				if (comboBox.getSelectedItem() == "Miles" && comboBoxMiles.getSelectedItem() == "Mile"
+						|| comboBox.getSelectedItem() == "Kilometers" && comboBoxMiles.getSelectedItem() == "Kilometer") {
 					time = df2.format(timeClass.calculate(paceTotal, distance));
 					time2 = df.format(timeClass.calculate(paceTotal, distance));
 					time3 = df.format(timeClass.calculate(paceTotal, distance));
@@ -365,7 +365,7 @@ public class PaceCalculator extends JFrame {
 					time3 = unitConvert.asSeconds(Double.parseDouble(time3));
 					textFieldTimeSeconds.setText(time3);
 				}
-				if (comboBox.getSelectedItem() == "Kilometers" && comboBox_2.getSelectedItem() == "Mile") {
+				if (comboBox.getSelectedItem() == "Kilometers" && comboBoxMiles.getSelectedItem() == "Mile") {
 					time = df2.format(timeClass.calculate(paceTotal, distance / 1.60934));
 					time2 = df.format(timeClass.calculate(paceTotal, distance / 1.60934));
 					time3 = df.format(timeClass.calculate(paceTotal, distance / 1.60934));
@@ -381,7 +381,7 @@ public class PaceCalculator extends JFrame {
 					// textField_1.setText(Double.toString(distance*paceMin/1.60934/60));
 					// textField_2.setText(Double.toString(distance*paceSec/1.60934/3600));
 				}
-				if (comboBox.getSelectedItem() == "Miles" && comboBox_2.getSelectedItem() == "Kilometer") {
+				if (comboBox.getSelectedItem() == "Miles" && comboBoxMiles.getSelectedItem() == "Kilometer") {
 					time = df.format(timeClass.calculate(paceTotal, distance * 1.60934));
 					time2 = df.format(timeClass.calculate(paceTotal, distance * 1.60934));
 					time3 = df.format(timeClass.calculate(paceTotal, distance * 1.60934));
@@ -403,7 +403,7 @@ public class PaceCalculator extends JFrame {
 		textFieldDistance = new JTextField();
 		textFieldDistance.setColumns(10);
 		textFieldDistance.setBounds(85, 16, 46, 20);
-		panel_2.add(textFieldDistance);
+		panelDistance.add(textFieldDistance);
 
 		textFieldDistance.addKeyListener(new KeyAdapter() {
 			@Override
@@ -418,23 +418,23 @@ public class PaceCalculator extends JFrame {
 			}
 		});
 
-		JLabel label_8 = new JLabel("or");
-		label_8.setVisible(false);
-		label_8.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		label_8.setBounds(103, 47, 46, 14);
-		panel_2.add(label_8);
+		JLabel labelOr = new JLabel("or");
+		labelOr.setVisible(false);
+		labelOr.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		labelOr.setBounds(103, 47, 46, 14);
+		panelDistance.add(labelOr);
 
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(40, 61, 129, 20);
-		comboBox_1.addItem("Pick Event");
-		comboBox_1.addItem("5K");
-		comboBox_1.addItem("5-Mile");
-		comboBox_1.addItem("10K");
-		comboBox_1.addItem("Half-Marathon");
-		panel_2.add(comboBox_1);
-		comboBox_1.addActionListener(new ActionListener() {
+		JComboBox comboBoxDistance = new JComboBox();
+		comboBoxDistance.setBounds(40, 61, 129, 20);
+		comboBoxDistance.addItem("Pick Event");
+		comboBoxDistance.addItem("5K");
+		comboBoxDistance.addItem("5-Mile");
+		comboBoxDistance.addItem("10K");
+		comboBoxDistance.addItem("Half-Marathon");
+		panelDistance.add(comboBoxDistance);
+		comboBoxDistance.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String sec = comboBox_1.getSelectedItem().toString();
+				String sec = comboBoxDistance.getSelectedItem().toString();
 				// add user input from event to miles
 				if (sec == "5K") {
 					textFieldDistance.setText("   3.1");
@@ -455,45 +455,45 @@ public class PaceCalculator extends JFrame {
 			}
 		});
 
-		JLabel label_9 = new JLabel("To calculate your distance, fill in");
-		label_9.setVisible(false);
-		label_9.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		label_9.setBounds(183, 13, 52, 14);
-		panel_2.add(label_9);
+		JLabel labelTimeAndPacePrompt = new JLabel("To calculate your distance, fill in");
+		labelTimeAndPacePrompt.setVisible(false);
+		labelTimeAndPacePrompt.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		labelTimeAndPacePrompt.setBounds(183, 13, 52, 14);
+		panelDistance.add(labelTimeAndPacePrompt);
 
-		JLabel label_10 = new JLabel("your time and pace then click");
-		label_10.setVisible(false);
-		label_10.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		label_10.setBounds(193, 38, 27, 14);
-		panel_2.add(label_10);
+		JLabel labelTimeAndPacePromptCont = new JLabel("your time and pace then click");
+		labelTimeAndPacePromptCont.setVisible(false);
+		labelTimeAndPacePromptCont.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		labelTimeAndPacePromptCont.setBounds(193, 38, 27, 14);
+		panelDistance.add(labelTimeAndPacePromptCont);
 
-		JLabel label_11 = new JLabel("here:");
-		label_11.setVisible(false);
-		label_11.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		label_11.setBounds(183, 63, 27, 14);
-		panel_2.add(label_11);
+		JLabel labelHere = new JLabel("here:");
+		labelHere.setVisible(false);
+		labelHere.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		labelHere.setBounds(183, 63, 27, 14);
+		panelDistance.add(labelHere);
 
-		JButton button_1 = new JButton("Calculate Distance");
-		button_1.setFont(new Font("Tahoma", Font.BOLD, 13));
-		button_1.setBounds(248, 34, 157, 23);
-		panel_2.add(button_1);
+		JButton buttonCalcDistance = new JButton("Calculate Distance");
+		buttonCalcDistance.setFont(new Font("Tahoma", Font.BOLD, 13));
+		buttonCalcDistance.setBounds(248, 34, 157, 23);
+		panelDistance.add(buttonCalcDistance);
 
 		JLabel lblMiles = new JLabel("miles");
 		lblMiles.setBounds(138, 19, 46, 14);
-		panel_2.add(lblMiles);
-		
+		panelDistance.add(lblMiles);
+
 		JButton distanceClear = new JButton("Clear");
 		distanceClear.setBounds(402, 34, 68, 23);
-		panel_2.add(distanceClear);
+		panelDistance.add(distanceClear);
 		distanceClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textFieldDistance.setText("");
-				comboBox_1.setSelectedItem("Pick Event");
+				comboBoxDistance.setSelectedItem("Pick Event");
 				textFieldDistance.requestFocus();
 			}
 		});
 
-		button_1.addActionListener(new ActionListener() {
+		buttonCalcDistance.addActionListener(new ActionListener() {
 			private double timeHr;
 			private double timeMin;
 			private double timeSec;
@@ -554,23 +554,23 @@ public class PaceCalculator extends JFrame {
 					JOptionPane.showMessageDialog(frmPAC, "To calculate Distance, enter a Time and Pace", "information",
 							JOptionPane.INFORMATION_MESSAGE);
 				}
-				if (comboBox.getSelectedItem() == "Miles" && comboBox_2.getSelectedItem() == "Mile"
-						|| comboBox.getSelectedItem() == "Kilometers" && comboBox_2.getSelectedItem() == "Kilometer") {
+				if (comboBox.getSelectedItem() == "Miles" && comboBoxMiles.getSelectedItem() == "Mile"
+						|| comboBox.getSelectedItem() == "Kilometers" && comboBoxMiles.getSelectedItem() == "Kilometer") {
 					if (paceTotal != 0 || timeTotal != 0) {
 						distance = df.format(dist.calculate(paceTotal, timeTotal));
-						textFieldDistance.setText("  "+distance);
+						textFieldDistance.setText("  " + distance);
 					}
 				}
-				if (comboBox.getSelectedItem() == "Kilometers" && comboBox_2.getSelectedItem() == "Mile") {
+				if (comboBox.getSelectedItem() == "Kilometers" && comboBoxMiles.getSelectedItem() == "Mile") {
 					if (paceTotal != 0 || timeTotal != 0) {
 						distance = df.format(dist.calculate(paceTotal, timeTotal) * 1.60934);
-						textFieldDistance.setText("  "+distance);
+						textFieldDistance.setText("  " + distance);
 					}
 				}
-				if (comboBox.getSelectedItem() == "Miles" && comboBox_2.getSelectedItem() == "Kilometer") {
+				if (comboBox.getSelectedItem() == "Miles" && comboBoxMiles.getSelectedItem() == "Kilometer") {
 					if (paceTotal != 0 || timeTotal != 0) {
 						distance = df2.format(dist.calculate(paceTotal, timeTotal) / 1.60934);
-						textFieldDistance.setText("  "+distance);
+						textFieldDistance.setText("  " + distance);
 					}
 				}
 			}
@@ -580,16 +580,16 @@ public class PaceCalculator extends JFrame {
 		textFieldPaceHours.setVisible(false);
 		textFieldPaceHours.setColumns(10);
 		textFieldPaceHours.setBounds(10, 45, 56, 20);
-		panel_3.add(textFieldPaceHours);
+		panelPace.add(textFieldPaceHours);
 
-		JLabel label_12 = new JLabel("hr");
-		label_12.setVisible(false);
-		label_12.setBounds(20, 27, 46, 14);
-		panel_3.add(label_12);
+		JLabel labelHr = new JLabel("hr");
+		labelHr.setVisible(false);
+		labelHr.setBounds(20, 27, 46, 14);
+		panelPace.add(labelHr);
 
-		JLabel label_13 = new JLabel("mins");
-		label_13.setBounds(89, 27, 46, 14);
-		panel_3.add(label_13);
+		JLabel labelMins = new JLabel("mins");
+		labelMins.setBounds(89, 27, 46, 14);
+		panelPace.add(labelMins);
 
 		textFieldPaceMinutes = new JTextField();
 		textFieldPaceMinutes.addFocusListener(new FocusAdapter() {
@@ -627,11 +627,11 @@ public class PaceCalculator extends JFrame {
 		});
 		textFieldPaceMinutes.setColumns(10);
 		textFieldPaceMinutes.setBounds(81, 45, 38, 20);
-		panel_3.add(textFieldPaceMinutes);
+		panelPace.add(textFieldPaceMinutes);
 
-		JLabel label_14 = new JLabel("secs");
-		label_14.setBounds(158, 27, 46, 14);
-		panel_3.add(label_14);
+		JLabel labelSecs = new JLabel("secs");
+		labelSecs.setBounds(158, 27, 46, 14);
+		panelPace.add(labelSecs);
 
 		textFieldPaceSeconds = new JTextField();
 		textFieldPaceSeconds.addFocusListener(new FocusAdapter() {
@@ -670,33 +670,33 @@ public class PaceCalculator extends JFrame {
 		});
 		textFieldPaceSeconds.setColumns(10);
 		textFieldPaceSeconds.setBounds(132, 45, 74, 20);
-		panel_3.add(textFieldPaceSeconds);
+		panelPace.add(textFieldPaceSeconds);
 
 		JLabel lblPerMile = new JLabel("Per Mile");
 		lblPerMile.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblPerMile.setBounds(116, 78, 87, 14);
-		panel_3.add(lblPerMile);
+		panelPace.add(lblPerMile);
 
-		JLabel label_16 = new JLabel("To calculate your pace, fill in your");
-		label_16.setVisible(false);
-		label_16.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		label_16.setBounds(231, 10, 87, 14);
-		panel_3.add(label_16);
+		JLabel labelTimeAndDistPrompt = new JLabel("To calculate your pace, fill in your");
+		labelTimeAndDistPrompt.setVisible(false);
+		labelTimeAndDistPrompt.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		labelTimeAndDistPrompt.setBounds(231, 10, 87, 14);
+		panelPace.add(labelTimeAndDistPrompt);
 
-		JLabel label_17 = new JLabel("time and distance, then click here:");
-		label_17.setVisible(false);
-		label_17.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		label_17.setBounds(231, 26, 82, 14);
-		panel_3.add(label_17);
+		JLabel labelTimeAndDistPromptCont = new JLabel("time and distance, then click here:");
+		labelTimeAndDistPromptCont.setVisible(false);
+		labelTimeAndDistPromptCont.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		labelTimeAndDistPromptCont.setBounds(231, 26, 82, 14);
+		panelPace.add(labelTimeAndDistPromptCont);
 
-		JButton button_2 = new JButton("Calculate Pace");
-		button_2.setFont(new Font("Tahoma", Font.BOLD, 13));
-		button_2.setBounds(273, 42, 129, 25);
-		panel_3.add(button_2);
-		
+		JButton buttonCalcPace = new JButton("Calculate Pace");
+		buttonCalcPace.setFont(new Font("Tahoma", Font.BOLD, 13));
+		buttonCalcPace.setBounds(273, 42, 129, 25);
+		panelPace.add(buttonCalcPace);
+
 		JButton clearAll = new JButton("Clear All");
 		clearAll.setBounds(387, 91, 82, 23);
-		panel_3.add(clearAll);
+		panelPace.add(clearAll);
 		clearAll.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textFieldTimeHours.setText("");
@@ -706,13 +706,13 @@ public class PaceCalculator extends JFrame {
 				textFieldPaceHours.setText("");
 				textFieldPaceMinutes.setText("");
 				textFieldPaceSeconds.setText("");
-				comboBox_1.setSelectedItem("Pick Event");
+				comboBoxDistance.setSelectedItem("Pick Event");
 			}
 		});
-		
+
 		JButton paceClear = new JButton("Clear");
 		paceClear.setBounds(400, 43, 69, 23);
-		panel_3.add(paceClear);
+		panelPace.add(paceClear);
 		paceClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textFieldPaceHours.setText("");
@@ -721,8 +721,8 @@ public class PaceCalculator extends JFrame {
 				textFieldPaceMinutes.requestFocus();
 			}
 		});
-		
-		button_2.addActionListener(new ActionListener() {
+
+		buttonCalcPace.addActionListener(new ActionListener() {
 
 			double distance;
 			double timeHr;
@@ -786,8 +786,8 @@ public class PaceCalculator extends JFrame {
 							JOptionPane.INFORMATION_MESSAGE);
 
 				}
-				if (comboBox.getSelectedItem() == "Miles" && comboBox_2.getSelectedItem() == "Mile"
-						|| comboBox.getSelectedItem() == "Kilometers" && comboBox_2.getSelectedItem() == "Kilometer") {
+				if (comboBox.getSelectedItem() == "Miles" && comboBoxMiles.getSelectedItem() == "Mile"
+						|| comboBox.getSelectedItem() == "Kilometers" && comboBoxMiles.getSelectedItem() == "Kilometer") {
 					if (paceTotal != 0 && distance != 0) {
 						time = df2.format(paceClass.calculate(paceTotal, distance));
 						time2 = df.format(paceClass.calculate(paceTotal, distance));
@@ -804,7 +804,7 @@ public class PaceCalculator extends JFrame {
 					}
 
 				}
-				if (comboBox.getSelectedItem() == "Miles" && comboBox_2.getSelectedItem() == "Kilometer") {
+				if (comboBox.getSelectedItem() == "Miles" && comboBoxMiles.getSelectedItem() == "Kilometer") {
 					if (paceTotal != 0 && distance != 0) {
 						time = df2.format(paceClass.calculate(paceTotal, distance * 1.60934));
 						time2 = df.format(paceClass.calculate(paceTotal, distance * 1.60934));
@@ -822,7 +822,7 @@ public class PaceCalculator extends JFrame {
 					}
 
 				}
-				if (comboBox.getSelectedItem() == "Kilometers" && comboBox_2.getSelectedItem() == "Mile") {
+				if (comboBox.getSelectedItem() == "Kilometers" && comboBoxMiles.getSelectedItem() == "Mile") {
 					if (paceTotal != 0 && distance != 0) {
 						time = df2.format(paceClass.calculate(paceTotal, distance / 1.60934));
 						time2 = df.format(paceClass.calculate(paceTotal, distance / 1.60934));
