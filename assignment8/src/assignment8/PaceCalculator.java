@@ -268,6 +268,7 @@ public class PaceCalculator extends JFrame {
 				textFieldTimeHours.setText("");
 				textFieldTimeMinutes.setText("");
 				textFieldTimeSeconds.setText("");
+				textFieldTimeHours.requestFocus();
 			}
 		});
 
@@ -488,6 +489,7 @@ public class PaceCalculator extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				textFieldDistance.setText("");
 				comboBox_1.setSelectedItem("Pick Event");
+				textFieldDistance.requestFocus();
 			}
 		});
 
@@ -613,8 +615,8 @@ public class PaceCalculator extends JFrame {
 					// JOptionPane.showMessageDialog(frmPAC, "You Pressed
 					// Enter.",
 					// "Information", JOptionPane.INFORMATION_MESSAGE);
-					textFieldPaceMinutes.requestFocus();
-					textFieldPaceMinutes.selectAll();
+					textFieldPaceSeconds.requestFocus();
+					textFieldPaceSeconds.selectAll();
 				} else if (arg0.getKeyChar() > '9' | arg0.getKeyChar() < '0') {
 					JOptionPane.showMessageDialog(frmPAC, "That key was not a number.", "Information",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -655,8 +657,8 @@ public class PaceCalculator extends JFrame {
 				} else if (arg0.getKeyChar() == KeyEvent.VK_DELETE) {
 				} else if (arg0.getKeyChar() == KeyEvent.VK_ENTER) {
 
-					textFieldPaceSeconds.requestFocus();
-					textFieldPaceSeconds.selectAll();
+					textFieldPaceMinutes.requestFocus();
+					textFieldPaceMinutes.selectAll();
 					;
 				} else if (arg0.getKeyChar() > '9' | arg0.getKeyChar() < '0') {
 					JOptionPane.showMessageDialog(frmPAC, "That key was not a number.", "Information",
@@ -716,6 +718,7 @@ public class PaceCalculator extends JFrame {
 				textFieldPaceHours.setText("");
 				textFieldPaceMinutes.setText("");
 				textFieldPaceSeconds.setText("");
+				textFieldPaceMinutes.requestFocus();
 			}
 		});
 		
